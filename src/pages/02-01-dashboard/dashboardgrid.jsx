@@ -2,7 +2,7 @@ import React from "react";
 import clsx from 'clsx';
 import {Table, Row, Col, Media, Button, Badge, ProgressBar, Dropdown} from 'react-bootstrap';
 import Thumbnail from '../../assets/150x150.png';
-import Graph from '../../assets/graph.png';
+import Graph from '../../assets/02-01-dashboard-graph.png';
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
 import MoreVert from 'mdi-react/MoreVertIcon';
 
@@ -46,7 +46,7 @@ const DashboardTable = () => {
                             <strong>Change 1D</strong>
                             <div>
                                 <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
+                                <small className={"GreenText"}>(2.76%)</small>
                             </div>
                         </div>
 
@@ -98,7 +98,7 @@ const DashboardTable = () => {
                             <strong>Change 1D</strong>
                             <div>
                                 <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
+                                <small className={"GreenText"}>(2.76%)</small>
                             </div>
                         </div>
 
@@ -150,165 +150,7 @@ const DashboardTable = () => {
                             <strong>Change 1D</strong>
                             <div>
                                 <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
-                            </div>
-                        </div>
-
-                        <img
-                            width={"auto"}
-                            height={40}
-                            src={Graph}
-                            className="tableGraphImage  mt-2"
-                        />
-                        <div className={"d-flex justify-content-between mt-3"}>
-                            <Button variant="primary">
-                                S <Badge variant="light">1519.63</Badge>
-                                <span className="sr-only">unread messages</span>
-                            </Button>
-                            <Button variant="primary">
-                                B <Badge variant="light">1519.63</Badge>
-                                <span className="sr-only">unread messages</span>
-                            </Button>
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
-                        <div className={"d-flex justify-content-between"}>
-                            <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={Thumbnail}
-                                    alt="Generic placeholder"
-                                />
-                                <Media.Body>
-                                    <strong>TSLA</strong>
-                                    <p className={"noMargin"}>
-                                        Tela Motors...
-                                    </p>
-                                </Media.Body>
-                            </Media>
-
-                            <Dropdown className={"dropdownWithoutCaret"}>
-                                <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                    <MoreVert/>
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item>Delete</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </div>
-                        <div className={"d-flex justify-content-between mt-2"}>
-                            <strong>Change 1D</strong>
-                            <div>
-                                <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
-                            </div>
-                        </div>
-
-                        <img
-                            width={"auto"}
-                            height={40}
-                            src={Graph}
-                            className="tableGraphImage  mt-2"
-                        />
-                        <div className={"d-flex justify-content-between mt-3"}>
-                            <Button variant="primary">
-                                S <Badge variant="light">1519.63</Badge>
-                                <span className="sr-only">unread messages</span>
-                            </Button>
-                            <Button variant="primary">
-                                B <Badge variant="light">1519.63</Badge>
-                                <span className="sr-only">unread messages</span>
-                            </Button>
-                        </div>
-                    </Col>
-                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
-                        <div className={"d-flex justify-content-between"}>
-                            <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={Thumbnail}
-                                    alt="Generic placeholder"
-                                />
-                                <Media.Body>
-                                    <strong>TSLA</strong>
-                                    <p className={"noMargin"}>
-                                        Tela Motors...
-                                    </p>
-                                </Media.Body>
-                            </Media>
-
-                            <Dropdown className={"dropdownWithoutCaret"}>
-                                <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                    <MoreVert/>
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item>Delete</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </div>
-                        <div className={"d-flex justify-content-between mt-2"}>
-                            <strong>Change 1D</strong>
-                            <div>
-                                <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
-                            </div>
-                        </div>
-
-                        <img
-                            width={"auto"}
-                            height={40}
-                            src={Graph}
-                            className="tableGraphImage  mt-2"
-                        />
-                        <div className={"d-flex justify-content-between mt-3"}>
-                            <Button variant="primary">
-                                S <Badge variant="light">1519.63</Badge>
-                                <span className="sr-only">unread messages</span>
-                            </Button>
-                            <Button variant="primary">
-                                B <Badge variant="light">1519.63</Badge>
-                                <span className="sr-only">unread messages</span>
-                            </Button>
-                        </div>
-                    </Col>
-                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
-                        <div className={"d-flex justify-content-between"}>
-                            <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={Thumbnail}
-                                    alt="Generic placeholder"
-                                />
-                                <Media.Body>
-                                    <strong>TSLA</strong>
-                                    <p className={"noMargin"}>
-                                        Tela Motors...
-                                    </p>
-                                </Media.Body>
-                            </Media>
-
-                            <Dropdown className={"dropdownWithoutCaret"}>
-                                <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                    <MoreVert/>
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item>Delete</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </div>
-                        <div className={"d-flex justify-content-between mt-2"}>
-                            <strong>Change 1D</strong>
-                            <div>
-                                <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
+                                <small className={"GreenText"}>(2.76%)</small>
                             </div>
                         </div>
 
@@ -362,7 +204,7 @@ const DashboardTable = () => {
                             <strong>Change 1D</strong>
                             <div>
                                 <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
+                                <small className={"GreenText"}>(2.76%)</small>
                             </div>
                         </div>
 
@@ -414,7 +256,7 @@ const DashboardTable = () => {
                             <strong>Change 1D</strong>
                             <div>
                                 <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
+                                <small className={"GreenText"}>(2.76%)</small>
                             </div>
                         </div>
 
@@ -466,7 +308,165 @@ const DashboardTable = () => {
                             <strong>Change 1D</strong>
                             <div>
                                 <UpIcon className={"GreenText"}/>
-                                <small>(2.76%)</small>
+                                <small className={"GreenText"}>(2.76%)</small>
+                            </div>
+                        </div>
+
+                        <img
+                            width={"auto"}
+                            height={40}
+                            src={Graph}
+                            className="tableGraphImage  mt-2"
+                        />
+                        <div className={"d-flex justify-content-between mt-3"}>
+                            <Button variant="primary">
+                                S <Badge variant="light">1519.63</Badge>
+                                <span className="sr-only">unread messages</span>
+                            </Button>
+                            <Button variant="primary">
+                                B <Badge variant="light">1519.63</Badge>
+                                <span className="sr-only">unread messages</span>
+                            </Button>
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
+                        <div className={"d-flex justify-content-between"}>
+                            <Media as="li">
+                                <img
+                                    width={40}
+                                    height={40}
+                                    className="mr-3"
+                                    src={Thumbnail}
+                                    alt="Generic placeholder"
+                                />
+                                <Media.Body>
+                                    <strong>TSLA</strong>
+                                    <p className={"noMargin"}>
+                                        Tela Motors...
+                                    </p>
+                                </Media.Body>
+                            </Media>
+
+                            <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                                    <MoreVert/>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>Delete</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
+                        <div className={"d-flex justify-content-between mt-2"}>
+                            <strong>Change 1D</strong>
+                            <div>
+                                <UpIcon className={"GreenText"}/>
+                                <small className={"GreenText"}>(2.76%)</small>
+                            </div>
+                        </div>
+
+                        <img
+                            width={"auto"}
+                            height={40}
+                            src={Graph}
+                            className="tableGraphImage  mt-2"
+                        />
+                        <div className={"d-flex justify-content-between mt-3"}>
+                            <Button variant="primary">
+                                S <Badge variant="light">1519.63</Badge>
+                                <span className="sr-only">unread messages</span>
+                            </Button>
+                            <Button variant="primary">
+                                B <Badge variant="light">1519.63</Badge>
+                                <span className="sr-only">unread messages</span>
+                            </Button>
+                        </div>
+                    </Col>
+                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
+                        <div className={"d-flex justify-content-between"}>
+                            <Media as="li">
+                                <img
+                                    width={40}
+                                    height={40}
+                                    className="mr-3"
+                                    src={Thumbnail}
+                                    alt="Generic placeholder"
+                                />
+                                <Media.Body>
+                                    <strong>TSLA</strong>
+                                    <p className={"noMargin"}>
+                                        Tela Motors...
+                                    </p>
+                                </Media.Body>
+                            </Media>
+
+                            <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                                    <MoreVert/>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>Delete</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
+                        <div className={"d-flex justify-content-between mt-2"}>
+                            <strong>Change 1D</strong>
+                            <div>
+                                <UpIcon className={"GreenText"}/>
+                                <small className={"GreenText"}>(2.76%)</small>
+                            </div>
+                        </div>
+
+                        <img
+                            width={"auto"}
+                            height={40}
+                            src={Graph}
+                            className="tableGraphImage  mt-2"
+                        />
+                        <div className={"d-flex justify-content-between mt-3"}>
+                            <Button variant="primary">
+                                S <Badge variant="light">1519.63</Badge>
+                                <span className="sr-only">unread messages</span>
+                            </Button>
+                            <Button variant="primary">
+                                B <Badge variant="light">1519.63</Badge>
+                                <span className="sr-only">unread messages</span>
+                            </Button>
+                        </div>
+                    </Col>
+                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
+                        <div className={"d-flex justify-content-between"}>
+                            <Media as="li">
+                                <img
+                                    width={40}
+                                    height={40}
+                                    className="mr-3"
+                                    src={Thumbnail}
+                                    alt="Generic placeholder"
+                                />
+                                <Media.Body>
+                                    <strong>TSLA</strong>
+                                    <p className={"noMargin"}>
+                                        Tela Motors...
+                                    </p>
+                                </Media.Body>
+                            </Media>
+
+                            <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                                    <MoreVert/>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>Delete</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
+                        <div className={"d-flex justify-content-between mt-2"}>
+                            <strong>Change 1D</strong>
+                            <div>
+                                <UpIcon className={"GreenText"}/>
+                                <small className={"GreenText"}>(2.76%)</small>
                             </div>
                         </div>
 

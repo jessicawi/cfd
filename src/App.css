@@ -44,6 +44,11 @@
     color: #4CAF50;
 }
 
+.RedText {
+    fill: #af354d;
+    color: #af354d;
+}
+
 /*AppBar*/
 
 .topBar {
@@ -178,5 +183,11 @@ label.NavLabel {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1025px){
+    .AppBarSearch {
+        display: none !important;
     }
 }

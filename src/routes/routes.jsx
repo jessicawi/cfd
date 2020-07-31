@@ -1,6 +1,6 @@
 import {Route, Switch} from "react-router-dom";
 import React from "react";
-import Dashboard from "../pages/dashboard/dashboard";
+import Dashboard from "../pages/02-01-dashboard/dashboard";
 
 const Routes = ((props) => {
     return (

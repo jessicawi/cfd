@@ -27,7 +27,8 @@
     border-radius: 4px;
     color: #4CAF50;
 }
-.dashboardGrid-Item.col {
+
+.dashboardGrid-Item {
     border: 1px solid #ccc;
     border-radius: 5px;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from 'clsx';
-import {Table, Row, Col, Media, Button, Badge, ProgressBar, Dropdown} from 'react-bootstrap';
+import {Table, Row, Modal, Media, Button, Badge, ProgressBar, Dropdown} from 'react-bootstrap';
 import Thumbnail from '../../assets/150x150.png';
 import Graph from '../../assets/02-01-dashboard-graph.png';
 import decGraph from '../../assets/02-01-dashboard-graph-dec.png';
@@ -21,6 +21,8 @@ import ETHBTC from '../../assets/02-01-dashboard-cryptoicon-ethbtc.png';
 import ETHGBP from '../../assets/02-01-dashboard-cryptoicon-ethgbp.png';
 import GOLD from '../../assets/02-01-dashboard-cryptoicon-gold.png';
 import SILVER from '../../assets/02-01-dashboard-cryptoicon-silver.png';
+import CloseIcon from "mdi-react/CloseCircleIcon";
+import TransactionModal from './dashboard-transaction-model';
 
 const marks = [
     {
@@ -35,6 +37,13 @@ const marks = [
 
 const DashboardTable = () => {
 
+    const [TransactionModalShow, setTransactionModalShow] = React.useState(false);
+    const showTransactionModal = () => {
+        setTransactionModalShow(true);
+    };
+    const HideTransactionModal = () => {
+        setTransactionModalShow(false);
+    };
     return (
         <React.Fragment>
             <div className={"table_style dashboardTable"}>
@@ -85,13 +94,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -153,13 +162,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -221,13 +230,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -289,13 +298,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -357,13 +366,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -425,13 +434,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -493,13 +502,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -561,13 +570,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -629,13 +638,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -697,13 +706,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -765,13 +774,13 @@ const DashboardTable = () => {
                             </div>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 S <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
                         </td>
                         <td>
-                            <Button variant="primary">
+                            <Button variant="primary"  onClick={showTransactionModal}>
                                 B <Badge variant="light">1519.63</Badge>
                                 <span className="sr-only">unread messages</span>
                             </Button>
@@ -1001,6 +1010,14 @@ const DashboardTable = () => {
                     </tbody>
                 </Table>
             </div>
+
+            <Modal centered show={TransactionModalShow} onHide={HideTransactionModal} className={'dashModel'}>
+                <Modal.Body>
+                    <Button variant="primary" className={'modalClose'} onClick={HideTransactionModal}> <CloseIcon/>
+                    </Button>
+                    <TransactionModal/>
+                </Modal.Body>
+            </Modal>
         </React.Fragment>
     );
 };

@@ -70,10 +70,10 @@
 
 .textButton button:hover,
 .textButton button:active,
-.textButton button:focus{
+.textButton button:focus {
     background: none !important;
     color: #333 !important;
-    border:0px;
+    border: 0px;
     box-shadow: none;
 }
 
@@ -271,6 +271,65 @@ Nav
     width: 91px;
     opacity: 0.5;
 }
+
+/*Modal*/
+.modal.show .modal-dialog {
+    z-index: 99999;
+}
+
+.modal {
+    z-index: 9999;
+}
+
+.dashModel .modal-body {
+    padding: 0;
+}
+
+.dashModel .nav {
+    background: #495057;
+    padding: 10px;
+}
+
+.dashModel .modal-content {
+    border: 0px;
+    overflow: hidden;
+}
+
+.dashModel .nav-item {
+    text-align: center;
+    /* background: white; */
+}
+
+.dashModel .nav-pills .nav-link.active {
+    background: #333;
+    color:white;
+}
+
+.dashModel .nav-pills .nav-link {
+    background: #a5a5a5;
+    border-radius: 0px;
+    color: #333;
+    outline:none;
+}
+
+.dashModel .nav-pills .nav-item:last-child .nav-link {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.dashModel .nav-pills .nav-item:first-child .nav-link {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.modal button.modalClose {
+    position: absolute;
+    right: 0;
+    background: transparent;
+    border: 0px;
+    top: 7px;
+}
+
 @media (max-width: 1025px) {
     .AppBarSearch {
         display: none !important;

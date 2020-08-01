@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from 'clsx';
-import {Table, Row, Col, Media, Button, Badge, ProgressBar, Dropdown} from 'react-bootstrap';
+import TransactionModal from './dashboard-transaction-model';
+import {Table, Row, Col, Media, Button, Badge, Modal, Dropdown} from 'react-bootstrap';
 import Graph from '../../assets/02-01-dashboard-graph.png';
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
 import MoreVert from 'mdi-react/MoreVertIcon';
@@ -15,18 +16,27 @@ import ETHBTC from '../../assets/02-01-dashboard-cryptoicon-ethbtc.png';
 import ETHGBP from '../../assets/02-01-dashboard-cryptoicon-ethgbp.png';
 import GOLD from '../../assets/02-01-dashboard-cryptoicon-gold.png';
 import SILVER from '../../assets/02-01-dashboard-cryptoicon-silver.png';
+import {Tab} from "react-bootstrap/Tab";
+import CloseIcon from "mdi-react/CloseCircleIcon";
 
-const DashboardTable = () => {
+const DashboardGrid = () => {
 
+    const [TransactionModalShow, setTransactionModalShow] = React.useState(false);
+    const showTransactionModal = () => {
+        setTransactionModalShow(true);
+    };
+    const HideTransactionModal = () => {
+        setTransactionModalShow(false);
+    };
     return (
         <React.Fragment>
-            <div className={"table_style liteButton dashboardTable dashboardGrid pl-3 pr-3 "}>
+            <div className={"table_style  dashboardTable dashboardGrid pl-3 pr-3 "}>
                 <label className={"mt-2"}>
                     <h5 className={"noMargin"}>Markets</h5>
                 </label>
                 <Row>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item "}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3 "}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -44,7 +54,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -68,19 +78,19 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
                             </div>
                         </div>
                     </Col>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -98,7 +108,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -122,19 +132,19 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
                             </div>
                         </div>
                     </Col>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -152,7 +162,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -176,11 +186,11 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
@@ -189,8 +199,8 @@ const DashboardTable = () => {
                     </Col>
                 </Row>
                 <Row className={"mt-3"}>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -208,7 +218,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -232,19 +242,19 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
                             </div>
                         </div>
                     </Col>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -262,7 +272,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -286,19 +296,19 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
                             </div>
                         </div>
                     </Col>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -316,7 +326,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -340,11 +350,11 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
@@ -353,8 +363,8 @@ const DashboardTable = () => {
                     </Col>
                 </Row>
                 <Row className={"mt-3"}>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -372,7 +382,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -396,19 +406,19 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
                             </div>
                         </div>
                     </Col>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -426,7 +436,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -450,19 +460,19 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
                             </div>
                         </div>
                     </Col>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -480,7 +490,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -504,11 +514,11 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
@@ -517,8 +527,8 @@ const DashboardTable = () => {
                     </Col>
                 </Row>
                 <Row className={"mt-3"}>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -533,7 +543,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -557,19 +567,19 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
                             </div>
                         </div>
                     </Col>
-                    <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                    <Col md={4}>
+                        <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -584,7 +594,7 @@ const DashboardTable = () => {
                                     </Media.Body>
                                 </Media>
 
-                                <Dropdown className={"dropdownWithoutCaret"}>
+                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                     <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                         <MoreVert/>
                                     </Dropdown.Toggle>
@@ -608,11 +618,11 @@ const DashboardTable = () => {
                                 className="tableGraphImage  mt-2"
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
-                                <Button variant="primary">
+                                <Button variant="primary"  onClick={showTransactionModal}>
                                     Buy <Badge variant="light">1519.63</Badge>
                                     <span className="sr-only">unread messages</span>
                                 </Button>
@@ -627,7 +637,7 @@ const DashboardTable = () => {
                     <h5 className={"noMargin"}>Peoples</h5>
                 </label>
                 <Row>
-                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
+                    <Col md={4} className={"p-3 m-3 dashboardGrid-Item mb-3"}>
                         <div className={"d-flex justify-content-between"}>
                             <Media as="li">
                                 <img
@@ -645,7 +655,7 @@ const DashboardTable = () => {
                                 </Media.Body>
                             </Media>
 
-                            <Dropdown className={"dropdownWithoutCaret"}>
+                            <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                     <MoreVert/>
                                 </Dropdown.Toggle>
@@ -679,7 +689,7 @@ const DashboardTable = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
+                    <Col md={4} className={"p-3 m-3 dashboardGrid-Item mb-3"}>
                         <div className={"d-flex justify-content-between"}>
                             <Media as="li">
                                 <img
@@ -697,7 +707,7 @@ const DashboardTable = () => {
                                 </Media.Body>
                             </Media>
 
-                            <Dropdown className={"dropdownWithoutCaret"}>
+                            <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                     <MoreVert/>
                                 </Dropdown.Toggle>
@@ -731,7 +741,7 @@ const DashboardTable = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col className={"p-3 m-3 dashboardGrid-Item"}>
+                    <Col md={4} className={"p-3 m-3 dashboardGrid-Item mb-3"}>
                         <div className={"d-flex justify-content-between"}>
                             <Media as="li">
                                 <img
@@ -749,7 +759,7 @@ const DashboardTable = () => {
                                 </Media.Body>
                             </Media>
 
-                            <Dropdown className={"dropdownWithoutCaret"}>
+                            <Dropdown className={"dropdownWithoutCaret liteButton"}>
                                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                     <MoreVert/>
                                 </Dropdown.Toggle>
@@ -785,8 +795,16 @@ const DashboardTable = () => {
                     </Col>
                 </Row>
             </div>
+
+            <Modal centered show={TransactionModalShow} onHide={HideTransactionModal} className={'dashModel'}>
+                <Modal.Body>
+                    <Button variant="primary" className={'modalClose'} onClick={HideTransactionModal}> <CloseIcon/>
+                    </Button>
+                    <TransactionModal/>
+                </Modal.Body>
+            </Modal>
         </React.Fragment>
     );
 };
 
-export default DashboardTable;
+export default DashboardGrid;

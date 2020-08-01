@@ -156,11 +156,11 @@ const FeedList = () => {
                                     overlay={
                                         <Popover id={'popover-positioned-top'}>
                                             <Popover.Content className={"textButton"}>
-                                                <Button variant='primary'><FacebookIcon/></Button>
-                                                <Button variant='primary'><TwitterIcon/></Button>
-                                                <Button variant='primary'><LinkedinIcon/></Button>
-                                                <Button variant='primary'><EmailBoxIcon/></Button>
-                                                <Button variant='primary'><LinkIcon/></Button>
+                                                <Button variant="primary"><FacebookIcon/></Button>
+                                                <Button variant="primary"><TwitterIcon/></Button>
+                                                <Button variant="primary"><LinkedinIcon/></Button>
+                                                <Button variant="primary"><EmailBoxIcon/></Button>
+                                                <Button variant="primary"><LinkIcon/></Button>
                                             </Popover.Content>
                                         </Popover>
                                     }
@@ -314,11 +314,11 @@ const FeedList = () => {
                                     overlay={
                                         <Popover id={'popover-positioned-top'}>
                                             <Popover.Content className={"textButton"}>
-                                                <Button variant='primary'><FacebookIcon/></Button>
-                                                <Button variant='primary'><TwitterIcon/></Button>
-                                                <Button variant='primary'><LinkedinIcon/></Button>
-                                                <Button variant='primary'><EmailBoxIcon/></Button>
-                                                <Button variant='primary'><LinkIcon/></Button>
+                                                <Button variant="primary"><FacebookIcon/></Button>
+                                                <Button variant="primary"><TwitterIcon/></Button>
+                                                <Button variant="primary"><LinkedinIcon/></Button>
+                                                <Button variant="primary"><EmailBoxIcon/></Button>
+                                                <Button variant="primary"><LinkIcon/></Button>
                                             </Popover.Content>
                                         </Popover>
                                     }
@@ -398,7 +398,7 @@ const FeedList = () => {
                                             </Media.Body>
                                         </Media>
                                         <div>
-                                            <Button variant='primary'> COPY </Button>
+                                            <Button variant="primary"> COPY </Button>
                                         </div>
                                     </div>
                                     <div className={'d-flex align-items-center justify-content-between mb-3'}>
@@ -418,7 +418,7 @@ const FeedList = () => {
                                             </Media.Body>
                                         </Media>
                                         <div>
-                                            <Button variant='primary'> COPY </Button>
+                                            <Button variant="primary"> COPY </Button>
                                         </div>
                                     </div>
                                     <div className={'d-flex align-items-center justify-content-between mb-3'}>
@@ -438,7 +438,7 @@ const FeedList = () => {
                                             </Media.Body>
                                         </Media>
                                         <div>
-                                            <Button variant='primary'> COPY </Button>
+                                            <Button variant="primary"> COPY </Button>
                                         </div>
                                     </div>
 

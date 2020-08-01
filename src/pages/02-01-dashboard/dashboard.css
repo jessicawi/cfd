@@ -1,5 +1,4 @@
 
-
 .tableGraphImage {
     max-width: 300px;
     height: auto;
@@ -25,4 +24,21 @@
 .dashboardGrid-Item {
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+
+@media (max-width: 1025px) {
+    .modal .dashboardModel-Amount {
+        display: block !important;
+    }
+
+    .modal .dashboardModel-Amount * {
+        width: 100%;
+        margin: 0 0 4px;
+    }
+
+    .modal .dashboardModel-Amount strong {
+        display: block;
+        margin-bottom: 15px;
+    }
 }

@@ -6,10 +6,12 @@
     height: 40vmin;
     pointer-events: none;
 }
-.Logo h4 {
+
+.Logo h4 a {
     color: white;
     font-weight: bold;
 }
+
 .Flex {
     display: flex;
     align-items: center;
@@ -47,6 +49,32 @@
 .RedText {
     fill: #af354d;
     color: #af354d;
+}
+
+
+.liteButton button {
+    background: none;
+    border: 0px;
+    color: #333;
+}
+
+.textButton button {
+    background: none;
+    border: 0;
+    color: #ccc;
+}
+
+.btn-sm svg {
+    height: 21px;
+}
+
+.textButton button:hover,
+.textButton button:active,
+.textButton button:focus{
+    background: none !important;
+    color: #333 !important;
+    border:0px;
+    box-shadow: none;
 }
 
 /*AppBar*/
@@ -96,6 +124,7 @@ label.NavLabel {
     z-index: 1;
     padding: 0 10px;
 }
+
 .MuiListItemIcon-root img {
     width: 22px;
 }
@@ -109,7 +138,7 @@ label.NavLabel {
     justify-content: center;
 }
 
-.AppBarSearch{
+.AppBarSearch {
     position: relative;
     border-radius: 5px;
     background-color: #eeeeee3b;
@@ -126,6 +155,18 @@ label.NavLabel {
 .AppBarSearch input::placeholder {
     color: white !important;
     opacity: 1;
+}
+
+/*
+Nav
+ */
+.MuiDrawer-paperAnchorLeft a {
+    color: #a1a3b0;
+    text-decoration: none;
+}
+
+.MuiDrawer-paperAnchorLeft a:hover {
+    color: #f1f1f1;
 }
 
 /*Nav Scrollbar*/
@@ -186,8 +227,53 @@ label.NavLabel {
     }
 }
 
-@media (max-width: 1025px){
+
+/*Tabs*/
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border: 0px;
+    background: none;
+    border-bottom: 2px solid #007bff;
+    color: #007bff;
+}
+
+.nav-tabs {
+    border: 0px;
+}
+
+.nav-tabs .nav-link {
+    color: #333;
+    flex: 1;
+}
+
+.tab-content {
+    padding: 20px;
+}
+
+.Tabs-titleIcon svg {
+    height: 18px;
+    display: flex;
+}
+
+.Tabs-titleIcon {
+    display: flex;
+    justify-content: center;
+}
+
+/*Notice*/
+.Notice {
+    color: #ccc;
+}
+
+.Notice-Empty svg {
+    display: block;
+    margin: auto;
+    height: 100px;
+    width: 91px;
+    opacity: 0.5;
+}
+@media (max-width: 1025px) {
     .AppBarSearch {
         display: none !important;
     }
 }
+

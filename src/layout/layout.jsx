@@ -5,8 +5,6 @@ import {fade, makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
 import "./layout.css";
-import DrawerLayout from './drawer';
-import DrawerMobileLayout from './drawerMobile';
 import TopBar from './topBar';
 import Routes from "../routes/routes";
 import 'bootstrap/dist/css/bootstrap.min.css';

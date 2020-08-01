@@ -1,0 +1,18 @@
+.feedItem input {
+    background: #ffffff;
+    border: 0;
+}
+
+.feedItem {
+    background: white;
+    padding: 20px;
+    border: 1px solid #e3e3e3;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.feed-commentBox {
+    margin: 15px -20px -20px;
+    background: #f8f9fa;
+    padding: 15px;
+}

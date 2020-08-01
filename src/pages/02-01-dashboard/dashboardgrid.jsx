@@ -1,14 +1,9 @@
 import React from "react";
 import clsx from 'clsx';
 import {Table, Row, Col, Media, Button, Badge, ProgressBar, Dropdown} from 'react-bootstrap';
-import Thumbnail from '../../assets/150x150.png';
 import Graph from '../../assets/02-01-dashboard-graph.png';
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
 import MoreVert from 'mdi-react/MoreVertIcon';
-import DownIcon from 'mdi-react/ArrowDropDownIcon';
-import AddIcon from 'mdi-react/AddBoxIcon';
-import Slider from '@material-ui/core/Slider';
-import Box from '@material-ui/core/Box';
 import BTC from '../../assets/02-01-dashboard-cryptoicon-btc.png';
 import ETH from '../../assets/02-01-dashboard-cryptoicon-eth.png';
 import XRP from '../../assets/02-01-dashboard-cryptoicon-xrp.png';
@@ -25,13 +20,13 @@ const DashboardTable = () => {
 
     return (
         <React.Fragment>
-            <div className={"table_style dashboardTable dashboardGrid pl-3 pr-3 "}>
+            <div className={"table_style liteButton dashboardTable dashboardGrid pl-3 pr-3 "}>
                 <label className={"mt-2"}>
                     <h5 className={"noMargin"}>Markets</h5>
                 </label>
                 <Row>
                     <Col md={4} >
-                        <div className={"p-3 dashboardGrid-Item"}>
+                        <div className={"p-3 dashboardGrid-Item "}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
                                     <img
@@ -627,7 +622,7 @@ const DashboardTable = () => {
                 </Row>
             </div>
 
-            <div className={"table_style dashboardTable dashboardGrid pl-3 pr-3 mt-3"}>
+            <div className={"table_style dashboardTable liteButton dashboardGrid pl-3 pr-3 mt-3"}>
                 <label>
                     <h5 className={"noMargin"}>Peoples</h5>
                 </label>

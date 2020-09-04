@@ -2,8 +2,7 @@ import {NewRequest, parseResponseAndHandleErrors, URLForEndpoint} from "./reques
 import {ERROR_SERVER_UNREACHABLE} from "../data/datasourceConst";
 import Cookies from "js-cookie";
 import {locale} from "../locale";
-const API_HOST = "https://geneapi.bclg.in";
-
+const API_HOST = "https://tdmxapi.bclg.in";
 
 export default class DataSource {
 
@@ -130,30 +129,31 @@ export default class DataSource {
         // return jQuery.ajax(request);
     }
 
-    // async login(type, user, password) {
-    //     const data = {
-    //         grant_type: type,
-    //         username: user,
-    //         password: password,
-    //     };
-    //     try {
-    //         const response = await this.callAPI2("/token", "POST", null, data);
-    //         Cookies.set("ftnToken", response.access_token);
-    //         this.token = response.access_token;
-    //         return response;
-    //
-    //     } catch (e) {
-    //         throw e;
-    //     }
-    // }
+    async login(type, user, password) {
+        const data = {
+            grant_type: type,
+            username: user,
+            password: password,
+        };
+        try {
+            const response = await this.callAPI2("/token", "POST", null, data);
+            Cookies.set("ftnToken", response.access_token);
+            this.token = response.access_token;
+            return response;
+
+        } catch (e) {
+            throw e;
+        }
+    }
 
     async Logout(){
         this.token = '';
     }
 
     async checkToken(){
-        console.log(this.token)
-        return this.token;
+        if(this.token){
+            return this.token;
+        }
     }
 
     // async UpdatePasswordVerification() {

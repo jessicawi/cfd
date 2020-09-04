@@ -50,8 +50,6 @@
     fill: #af354d;
     color: #af354d;
 }
-
-
 .liteButton button {
     background: none;
     border: 0px;
@@ -77,6 +75,9 @@
     box-shadow: none;
 }
 
+.ButtonNormal{
+    background:#3F9ADB
+}
 /*AppBar*/
 
 .topBar {

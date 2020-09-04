@@ -12,7 +12,7 @@ export const ERROR_INVALID_RESPONSE = {
 };
 
 export const ERROR_SERVER_UNREACHABLE = {
-    type: "could_not_contact_server",
+    type: "02-01-dashboard-cryptoicon-btc_contact_server",
     message: "Couldn't contact the server. Please check your internet connection and try again",
 };
 

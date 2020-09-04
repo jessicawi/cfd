@@ -29,9 +29,8 @@ const Layout = withRouter((props) => {
         <React.Fragment>
             <div className={classes.root}>
                 <CssBaseline/>
-                <TopBar> </TopBar>
+
                 <main className={classes.content}>
-                    <Box height="64px"> </Box>
                     <Routes {...props}/>
                 </main>
             </div>

@@ -2,7 +2,7 @@ import QueryString from "querystring";
 import {ERROR_INVALID_RESPONSE} from "./datasourceConst";
 
 
-const API_HOST = "https://geneapi.bclg.in";
+const API_HOST = "https://tdmxapi.bclg.in";
 
 function URLForEndpoint(endpoint, params = null) {
     let url = API_HOST + endpoint;

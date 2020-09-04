@@ -96,12 +96,10 @@ function ResponsiveDrawer(props) {
                     <ListItemIcon><VisibilityIcon/></ListItemIcon>
                     <ListItemText primary={"Watchlist"}/>
                 </ListItem>
-
                 <ListItem button key={"Portfolio"}>
                     <ListItemIcon><AmpStoriesIcon/></ListItemIcon>
                     <ListItemText primary={"Portfolio"}/>
                 </ListItem>
-
                 <ListItem button key={"News Feed"} as={Link} to="/feed">
                     <ListItemIcon><DashboardIcon/></ListItemIcon>
                     <Link to="/feed">News Feed</Link>
@@ -109,18 +107,15 @@ function ResponsiveDrawer(props) {
             </List>
             <Divider className={"mt-3"}/>
             <label className={"NavLabel"}>Discover</label>
-
             <List>
                 <ListItem button key={"Trade Markets"}>
                     <ListItemIcon><ChartIcon/></ListItemIcon>
                     <ListItemText primary={"Trade Markets"}/>
                 </ListItem>
-
                 <ListItem button key={"Copy People"}>
                     <ListItemIcon><StarIcon/></ListItemIcon>
                     <ListItemText primary={"Copy People"}/>
                 </ListItem>
-
                 <ListItem button key={"Invest in CopyPortfolios"}>
                     <ListItemIcon><InvestIcon/></ListItemIcon>
                     <ListItemText primary={"Invest in CopyPortfolios"}/>
@@ -128,47 +123,42 @@ function ResponsiveDrawer(props) {
             </List>
             <Divider/>
             <label className={"NavLabel"}>More</label>
-
             <List>
                 <ListItem button key={"CFD Club"}>
                     <ListItemIcon><ClubIcon/></ListItemIcon>
                     <ListItemText primary={"CFD Club"}/>
                 </ListItem>
-
                 <ListItem button key={"Invite Friends"}>
                     <ListItemIcon><PeopleIcon/></ListItemIcon>
                     <ListItemText primary={"Invite Friends"}/>
                 </ListItem>
-
                 <ListItem button key={"Help"}>
                     <ListItemIcon><HelpIcon/></ListItemIcon>
                     <ListItemText primary={"Help"}/>
                 </ListItem>
-
                 <ListItem button key={"Guide"}>
                     <ListItemIcon><GuideIcon/></ListItemIcon>
                     <ListItemText primary={"Guide"}/>
                 </ListItem>
-
                 <ListItem button key={"Withdraw Funds"}>
                     <ListItemIcon>
-                        <img src="data:image/svg+xml;base64,
-PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIj48Zz48Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00MzIsMEg4MEMzNS44ODgsMCwwLDM1Ljg4OCwwLDgwdjFjMCw0NC4xMTIsMzUuODg4LDgwLDgwLDgwYzAuMzM3LDAsMC42NjctMC4wMzQsMS0wLjA1MVY0MzJjMCw0NC4xMTIsMzUuODg4LDgwLDgwLDgwICAgIGgxOTFjNDQuMTEyLDAsODAtMzUuODg4LDgwLTgwYzAtMTEuMDQ2LTguOTU0LTIwLTIwLTIwYy0xMS4wNDYsMC0yMCw4Ljk1NC0yMCwyMGMwLDIyLjA1Ni0xNy45NDQsNDAtNDAsNDBIMTYxICAgIGMtMjIuMDU2LDAtNDAtMTcuOTQ0LTQwLTQwVjQwaDI3MXYyOTJjMCwxMS4wNDYsOC45NTQsMjAsMjAsMjBjMTEuMDQ2LDAsMjAtOC45NTQsMjAtMjBWMTYxYzQ0LjExMiwwLDgwLTM1Ljg4OCw4MC04MHYtMSAgICBDNTEyLDM1Ljg4OCw0NzYuMTEyLDAsNDMyLDB6IE04MSwxMjEuMDUxYy0wLjMzMy0wLjAxNy0wLjY2My0wLjA1MS0xLTAuMDUxYy0yMi4wNTYsMC00MC0xNy45NDQtNDAtNDB2LTEgICAgYzAtMjIuMDU2LDE3Ljk0NC00MCw0MC00MGgxVjEyMS4wNTF6IE00NzIsODFjMCwyMi4wNTYtMTcuOTQ0LDQwLTQwLDQwVjQwYzIyLjA1NiwwLDQwLDE3Ljk0NCw0MCw0MFY4MXoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0IxQjNDMCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCTwvZz4KPC9nPjxnPgoJPGc+CgkJPHBhdGggZD0iTTI1Ni4xMjIsMTY1Yy01NC4wMzcsMC05OCw0MC44MjItOTgsOTFjMCw1MC4xNzgsNDMuOTYzLDkxLDk4LDkxczk4LTQwLjgyMiw5OC05MSAgICBDMzU0LjEyMiwyMDUuODIyLDMxMC4xNTksMTY1LDI1Ni4xMjIsMTY1eiBNMjU2LjEyMiwzMDdjLTMxLjk4MSwwLTU4LTIyLjg3OC01OC01MXMyNi4wMTktNTEsNTgtNTFzNTgsMjIuODc4LDU4LDUxICAgIFMyODguMTA0LDMwNywyNTYuMTIyLDMwN3oiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0IxQjNDMCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCTwvZz4KPC9nPjxnPgoJPGc+CgkJPGNpcmNsZSBjeD0iMjU3IiBjeT0iNDE1IiByPSIyMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojQjFCM0MwIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCI+PC9jaXJjbGU+Cgk8L2c+CjwvZz48Zz4KCTxnPgoJCTxjaXJjbGUgY3g9IjI1NyIgY3k9Ijk3IiByPSIyMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojQjFCM0MwIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCI+PC9jaXJjbGU+Cgk8L2c+CjwvZz48L2c+IDwvc3ZnPg=="/>
+                        <img
+                            alt=""
+                            src="data:image/svg+xml;base64,
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIj48Zz48Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00MzIsMEg4MEMzNS44ODgsMCwwLDM1Ljg4OCwwLDgwdjFjMCw0NC4xMTIsMzUuODg4LDgwLDgwLDgwYzAuMzM3LDAsMC42NjctMC4wMzQsMS0wLjA1MVY0MzJjMCw0NC4xMTIsMzUuODg4LDgwLDgwLDgwICAgIGgxOTFjNDQuMTEyLDAsODAtMzUuODg4LDgwLTgwYzAtMTEuMDQ2LTguOTU0LTIwLTIwLTIwYy0xMS4wNDYsMC0yMCw4Ljk1NC0yMCwyMGMwLDIyLjA1Ni0xNy45NDQsNDAtNDAsNDBIMTYxICAgIGMtMjIuMDU2LDAtNDAtMTcuOTQ0LTQwLTQwVjQwaDI3MXYyOTJjMCwxMS4wNDYsOC45NTQsMjAsMjAsMjBjMTEuMDQ2LDAsMjAtOC45NTQsMjAtMjBWMTYxYzQ0LjExMiwwLDgwLTM1Ljg4OCw4MC04MHYtMSAgICBDNTEyLDM1Ljg4OCw0NzYuMTEyLDAsNDMyLDB6IE04MSwxMjEuMDUxYy0wLjMzMy0wLjAxNy0wLjY2My0wLjA1MS0xLTAuMDUxYy0yMi4wNTYsMC00MC0xNy45NDQtNDAtNDB2LTEgICAgYzAtMjIuMDU2LDE3Ljk0NC00MCw0MC00MGgxVjEyMS4wNTF6IE00NzIsODFjMCwyMi4wNTYtMTcuOTQ0LDQwLTQwLDQwVjQwYzIyLjA1NiwwLDQwLDE3Ljk0NCw0MCw0MFY4MXoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0IxQjNDMCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCTwvZz4KPC9nPjxnPgoJPGc+CgkJPHBhdGggZD0iTTI1Ni4xMjIsMTY1Yy01NC4wMzcsMC05OCw0MC44MjItOTgsOTFjMCw1MC4xNzgsNDMuOTYzLDkxLDk4LDkxczk4LTQwLjgyMiw5OC05MSAgICBDMzU0LjEyMiwyMDUuODIyLDMxMC4xNTksMTY1LDI1Ni4xMjIsMTY1eiBNMjU2LjEyMiwzMDdjLTMxLjk4MSwwLTU4LTIyLjg3OC01OC01MXMyNi4wMTktNTEsNTgtNTFzNTgsMjIuODc4LDU4LDUxICAgIFMyODguMTA0LDMwNywyNTYuMTIyLDMwN3oiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0IxQjNDMCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCTwvZz4KPC9nPjxnPgoJPGc+CgkJPGNpcmNsZSBjeD0iMjU3IiBjeT0iNDE1IiByPSIyMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojQjFCM0MwIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCI+PC9jaXJjbGU+Cgk8L2c+CjwvZz48Zz4KCTxnPgoJCTxjaXJjbGUgY3g9IjI1NyIgY3k9Ijk3IiByPSIyMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojQjFCM0MwIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCI+PC9jaXJjbGU+Cgk8L2c+CjwvZz48L2c+IDwvc3ZnPg=="
+                        />
                     </ListItemIcon>
                     <ListItemText primary={"Withdraw Funds"}/>
                 </ListItem>
-
                 <ListItem button key={"Settings"}>
                     <ListItemIcon><SettingsIcon/></ListItemIcon>
                     <ListItemText primary={"Settings"}/>
                 </ListItem>
-
                 <ListItem button key={"Logout"}>
                     <ListItemIcon><LogoutIcon/></ListItemIcon>
                     <ListItemText primary={"Logout"}/>
                 </ListItem>
             </List>
-
         </div>
     );
 
@@ -260,4 +250,4 @@ ResponsiveDrawer.propTypes = {
     window: PropTypes.func,
 };
 
-export default ResponsiveDrawer
+export default ResponsiveDrawer;

@@ -1,7 +1,6 @@
 import React from "react";
-import clsx from 'clsx';
-import TransactionModal from './dashboard-transaction-model';
-import {Table, Row, Col, Media, Button, Badge, Modal, Dropdown} from 'react-bootstrap';
+import TransactionModal from './dashboardTransactionModel';
+import { Row, Col, Media, Button, Badge, Modal, Dropdown} from 'react-bootstrap';
 import Graph from '../../assets/02-01-dashboard-graph.png';
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
 import MoreVert from 'mdi-react/MoreVertIcon';
@@ -16,7 +15,6 @@ import ETHBTC from '../../assets/02-01-dashboard-cryptoicon-ethbtc.png';
 import ETHGBP from '../../assets/02-01-dashboard-cryptoicon-ethgbp.png';
 import GOLD from '../../assets/02-01-dashboard-cryptoicon-gold.png';
 import SILVER from '../../assets/02-01-dashboard-cryptoicon-silver.png';
-import {Tab} from "react-bootstrap/Tab";
 import CloseIcon from "mdi-react/CloseCircleIcon";
 
 const DashboardGrid = () => {
@@ -76,6 +74,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -130,6 +129,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -184,6 +184,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -240,6 +241,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -294,6 +296,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -348,6 +351,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -404,6 +408,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -458,6 +463,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -512,6 +518,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -565,6 +572,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
@@ -616,6 +624,7 @@ const DashboardGrid = () => {
                                 height={40}
                                 src={Graph}
                                 className="tableGraphImage  mt-2"
+                                alt=""
                             />
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>

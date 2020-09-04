@@ -1,6 +1,5 @@
 import React from "react";
-import clsx from 'clsx';
-import {Tab, Button, Col, Media, Dropdown, Badge, Modal, Nav, Card} from 'react-bootstrap';
+import {Tab, Button,  Media, Dropdown,  Nav, Card} from 'react-bootstrap';
 import BTC from "../../assets/02-01-dashboard-cryptoicon-btc.png";
 import ExchangeIcon from 'mdi-react/SwapHorizontalBoldIcon';
 import TextField from "@material-ui/core/TextField";

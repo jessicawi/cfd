@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from 'clsx';
 import {lighten, makeStyles} from "@material-ui/core/styles/makeStyles";
 import {Dropdown, Row, Col, Media, Card, Button, Form, OverlayTrigger, Popover, Tabs, Tab} from 'react-bootstrap';
 import MoreVert from 'mdi-react/MoreVertIcon';

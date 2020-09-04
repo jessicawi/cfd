@@ -1,7 +1,5 @@
 import React from "react";
-import clsx from 'clsx';
-import {Table, Row, Modal, Media, Button, Badge, ProgressBar, Dropdown} from 'react-bootstrap';
-import Thumbnail from '../../assets/150x150.png';
+import {Table, Modal, Media, Button, Badge, ProgressBar, Dropdown} from 'react-bootstrap';
 import Graph from '../../assets/02-01-dashboard-graph.png';
 import decGraph from '../../assets/02-01-dashboard-graph-dec.png';
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
@@ -22,7 +20,7 @@ import ETHGBP from '../../assets/02-01-dashboard-cryptoicon-ethgbp.png';
 import GOLD from '../../assets/02-01-dashboard-cryptoicon-gold.png';
 import SILVER from '../../assets/02-01-dashboard-cryptoicon-silver.png';
 import CloseIcon from "mdi-react/CloseCircleIcon";
-import TransactionModal from './dashboard-transaction-model';
+import TransactionModal from './dashboardTransactionModel';
 
 const marks = [
     {
@@ -56,7 +54,7 @@ const DashboardTable = () => {
                         <th style={{width: 10 + '%'}}>Buy</th>
                         <th style={{width: 20 + '%'}}>Range</th>
                         <th style={{width: 20 + '%'}}>Sentiment</th>
-                        <th></th>
+                        <th/>
                     </tr>
                     </thead>
                     <tbody>
@@ -89,7 +87,8 @@ const DashboardTable = () => {
                                     width={"auto"}
                                     height={40}
                                     src={Graph}
-                                    class="tableGraphImage"
+                                    className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -158,6 +157,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={decGraph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -226,6 +226,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={Graph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -294,6 +295,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={Graph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -430,6 +432,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={Graph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -498,6 +501,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={Graph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -566,6 +570,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={Graph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -634,6 +639,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={Graph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -702,6 +708,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={Graph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>
@@ -770,6 +777,7 @@ const DashboardTable = () => {
                                     height={40}
                                     src={Graph}
                                     className="tableGraphImage"
+                                    alt=""
                                 />
                             </div>
                         </td>

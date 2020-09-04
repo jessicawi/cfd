@@ -12,10 +12,15 @@ const App = (props) => {
         HomeButton();
     }, []);
 
-    function HomeButton() {
+    const HomeButton=()=> {
         const history = useHistory();
         const token = async () => {
-            await Datasource.shared.checkToken();
+            try{
+                return await Datasource.shared.checkToken();
+            } catch(e){
+                console.error("token err",e)
+            }
+
         };
         if (token) {
             console.log(token, 'token');
@@ -23,15 +28,13 @@ const App = (props) => {
         }
     }
 
-    {
-        return (
-            <React.Fragment>
-                <BrowserRouter>
-                    <Layout> </Layout>
-                </BrowserRouter>
-            </React.Fragment>
-        );
-    }
+    return (
+        <React.Fragment>
+            <BrowserRouter>
+                <Layout> </Layout>
+            </BrowserRouter>
+        </React.Fragment>
+    );
 };
 
 export default App;

@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5831b32-a71a-4c81-b887-59839fc703c4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Datasource.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/datasourceConst.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/locale/ch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/locale/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/locale/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/00-Login/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/topBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/topBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/02-01-dashboard/dashboard-transaction-model.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/02-01-dashboard/dashboard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/02-01-dashboard/dashboard.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/02-01-dashboard/dashboardTable.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/02-01-dashboard/dashboardgrid.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/03-01-feed/03-01-feed-list.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/03-01-feed/feed.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+            <state relative-caret-position="702">
+              <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -314,12 +296,12 @@
       <option name="presentableId" value="Default" />
       <updated>1597646420042</updated>
       <workItem from="1597646421562" duration="272000" />
-      <workItem from="1599181922890" duration="9966000" />
+      <workItem from="1599181922890" duration="10386000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10238000" />
+    <option name="totallyTimeSpent" value="10658000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -527,8 +509,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        <state relative-caret-position="702">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

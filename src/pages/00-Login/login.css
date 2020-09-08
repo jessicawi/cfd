@@ -20,3 +20,8 @@
     width:100%;
     margin-bottom: 20px !important;
 }
+
+.logo{
+    margin:auto !important;
+    display:table;
+}

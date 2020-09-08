@@ -1,16 +1,15 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import clsx from 'clsx';
-import {fade, makeStyles} from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Box from '@material-ui/core/Box';
 import "./layout.css";
-import TopBar from './topBar';
 import Routes from "../routes/routes";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TopBar from "./topBar";
+import {Col} from "react-bootstrap";
 
 const Layout = withRouter((props) => {
-    const isMobile = window.innerWidth < 1025;
+    // const isMobile = window.innerWidth < 1025;
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -29,9 +28,11 @@ const Layout = withRouter((props) => {
         <React.Fragment>
             <div className={classes.root}>
                 <CssBaseline/>
-
-                <main className={classes.content}>
-                    <Routes {...props}/>
+                <main className={[classes.content]}>
+                    <TopBar/>
+                    <div className="Content">
+                        <Routes {...props}/>
+                    </div>
                 </main>
             </div>
         </React.Fragment>

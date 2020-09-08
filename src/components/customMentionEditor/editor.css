@@ -1,0 +1,19 @@
+.editor {
+    box-sizing: border-box;
+    cursor: text;
+    padding: 16px;
+    border-radius: 2px;
+    margin-bottom: 2em;
+    background: #f5f5f5;
+    box-shadow: none;
+    border:0;
+    min-height: 100px;
+}
+.editor::placeholder{
+    color:white;
+}
+.editor :global(.public-DraftEditor-content) {
+    min-height: 140px;
+    padding:20px;
+    background: #777;
+}

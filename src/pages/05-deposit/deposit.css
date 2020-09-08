@@ -1,0 +1,90 @@
+.content-container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 100px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content-wrap {
+    width: auto;
+    padding: 20px;
+    min-height: 70vh;
+}
+
+.walletItemAction {
+    background: white;
+    border-radius: 6px;
+}
+.walletItemAction .MuiOutlinedInput-multiline {
+    padding: 10px 10px;
+}
+.walletListItem {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 7px;
+    width: 100%;
+    margin: 20px 0;
+    min-width: 500px;
+    box-shadow: 0 0 10px -5px #ccc;
+    border: 1px solid #eee;
+}
+
+.walletListItem img.profileImage {
+    border-radius: 100%;
+}
+
+.walletListItem .media h6 {
+    margin: 0px;
+}
+
+.walletListItem .media {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.walletItemAction input {
+    padding: 12px 0 12px 13px;
+    border: 0px !important;
+    background: none;
+}
+
+.walletItemAction fieldset {
+    border: 0px;
+}
+
+.walletActionItem {
+    /*padding: 5px 20px 5px 10px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:10px;
+}
+.walletActionItem .btn-group {
+    width: 100%;
+}
+
+.walletActionItem .btn-group button {
+    flex: 1 1;
+    padding: 8px 0;
+}
+
+.walletDetails{
+    padding-right: 10px;
+    border-right:1px solid #eee;
+}
+.walletItemAction textarea {
+    background: #e2e2e2;
+    padding: 10px !important;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.walletItemAction * {
+    padding: 0px !IMPORTANT;
+}
+
+.walletItemAction {
+}

@@ -1,21 +1,10 @@
 import React from "react";
 import TransactionModal from './dashboardTransactionModel';
 import { Row, Col, Media, Button, Badge, Modal, Dropdown} from 'react-bootstrap';
-import Graph from '../../assets/02-01-dashboard-graph.png';
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
 import MoreVert from 'mdi-react/MoreVertIcon';
-import BTC from '../../assets/02-01-dashboard-cryptoicon-btc.png';
-import ETH from '../../assets/02-01-dashboard-cryptoicon-eth.png';
-import XRP from '../../assets/02-01-dashboard-cryptoicon-xrp.png';
-import BCH from '../../assets/02-01-dashboard-cryptoicon-bch.png';
-import DASH from '../../assets/02-01-dashboard-cryptoicon-dash.png';
-import LTC from '../../assets/02-01-dashboard-cryptoicon-ltc.png';
-import GOLDBTC from '../../assets/02-01-dashboard-cryptoicon-goldbtc.png';
-import ETHBTC from '../../assets/02-01-dashboard-cryptoicon-ethbtc.png';
-import ETHGBP from '../../assets/02-01-dashboard-cryptoicon-ethgbp.png';
-import GOLD from '../../assets/02-01-dashboard-cryptoicon-gold.png';
-import SILVER from '../../assets/02-01-dashboard-cryptoicon-silver.png';
 import CloseIcon from "mdi-react/CloseCircleIcon";
+import FTNImage from "../../components/imageList";
 
 const DashboardGrid = () => {
 
@@ -37,13 +26,7 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3 "}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={BTC}
-                                        alt="BTC"
-                                    />
+                                    <FTNImage imageName="BTC" height={40}/>
                                     <Media.Body>
                                         <strong>BTC</strong>
                                         <p className={"noMargin"}>
@@ -69,13 +52,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -92,13 +70,8 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={ETH}
-                                        alt="ETH"
-                                    />
+
+                                    <FTNImage imageName="ETH" height={40}/>
                                     <Media.Body>
                                         <strong>ETHEREUM</strong>
                                         <p className={"noMargin"}>
@@ -124,13 +97,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -147,13 +115,7 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={XRP}
-                                        alt="XRP"
-                                    />
+                                    <FTNImage imageName="XRP" height={40}/>
                                     <Media.Body>
                                         <strong>XRP</strong>
                                         <p className={"noMargin"}>
@@ -179,13 +141,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -204,13 +161,7 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={BCH}
-                                        alt="BCH"
-                                    />
+                                    <FTNImage imageName="BCH" height={40}/>
                                     <Media.Body>
                                         <strong>BCH</strong>
                                         <p className={"noMargin"}>
@@ -236,13 +187,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -259,13 +205,7 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={DASH}
-                                        alt="DASH"
-                                    />
+                                    <FTNImage imageName="DASH" height={40}/>
                                     <Media.Body>
                                         <strong>DASH</strong>
                                         <p className={"noMargin"}>
@@ -291,13 +231,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -314,13 +249,7 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={LTC}
-                                        alt="LTC"
-                                    />
+                                    <FTNImage imageName="LTC" height={40}/>
                                     <Media.Body>
                                         <strong>LTC</strong>
                                         <p className={"noMargin"}>
@@ -346,13 +275,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -371,13 +295,8 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={GOLDBTC}
-                                        alt="GOLDBTC"
-                                    />
+
+                                    <FTNImage imageName="GOLDBTC" height={40}/>
                                     <Media.Body>
                                         <strong>GOLDBTC</strong>
                                         <p className={"noMargin"}>
@@ -403,13 +322,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -426,13 +340,8 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={ETHBTC}
-                                        alt="ETHBTC"
-                                    />
+
+                                    <FTNImage imageName="ETHBTC" height={40}/>
                                     <Media.Body>
                                         <strong>ETHBTC</strong>
                                         <p className={"noMargin"}>
@@ -458,13 +367,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -481,13 +385,8 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={ETHGBP}
-                                        alt="ETHGBP"
-                                    />
+
+                                    <FTNImage imageName="ETHGBP" height={40}/>
                                     <Media.Body>
                                         <strong>ETHGBP</strong>
                                         <p className={"noMargin"}>
@@ -513,13 +412,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -538,13 +432,8 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={GOLD}
-                                        alt="GOLD"
-                                    />
+
+                                    <FTNImage imageName="GOLD" height={40}/>
                                     <Media.Body>
                                         <strong>GOLD</strong>
                                     </Media.Body>
@@ -567,13 +456,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>
@@ -590,13 +474,8 @@ const DashboardGrid = () => {
                         <div className={"p-3 dashboardGrid-Item mb-3"}>
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={SILVER}
-                                        alt="SILVER"
-                                    />
+
+                                    <FTNImage imageName="SILVER" height={40}/>
                                     <Media.Body>
                                         <strong>SILVER</strong>
                                     </Media.Body>
@@ -619,13 +498,8 @@ const DashboardGrid = () => {
                                 </div>
                             </div>
 
-                            <img
-                                width={"auto"}
-                                height={40}
-                                src={Graph}
-                                className="tableGraphImage  mt-2"
-                                alt=""
-                            />
+
+                                    <FTNImage imageName="Graph" height={40}/>
                             <div className={"d-flex justify-content-between mt-3"}>
                                 <Button variant="primary"  onClick={showTransactionModal}>
                                     Sell <Badge variant="light">1519.63</Badge>

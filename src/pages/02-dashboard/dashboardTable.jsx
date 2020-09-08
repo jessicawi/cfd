@@ -1,26 +1,14 @@
 import React from "react";
 import {Table, Modal, Media, Button, Badge, ProgressBar, Dropdown} from 'react-bootstrap';
-import Graph from '../../assets/02-01-dashboard-graph.png';
-import decGraph from '../../assets/02-01-dashboard-graph-dec.png';
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
 import DownIcon from 'mdi-react/ArrowDropDownIcon';
 import AddIcon from 'mdi-react/AddBoxIcon';
 import Slider from '@material-ui/core/Slider';
 import Box from '@material-ui/core/Box';
 import MoreVert from 'mdi-react/MoreVertIcon';
-import BTC from '../../assets/02-01-dashboard-cryptoicon-btc.png';
-import ETH from '../../assets/02-01-dashboard-cryptoicon-eth.png';
-import XRP from '../../assets/02-01-dashboard-cryptoicon-xrp.png';
-import BCH from '../../assets/02-01-dashboard-cryptoicon-bch.png';
-import DASH from '../../assets/02-01-dashboard-cryptoicon-dash.png';
-import LTC from '../../assets/02-01-dashboard-cryptoicon-ltc.png';
-import GOLDBTC from '../../assets/02-01-dashboard-cryptoicon-goldbtc.png';
-import ETHBTC from '../../assets/02-01-dashboard-cryptoicon-ethbtc.png';
-import ETHGBP from '../../assets/02-01-dashboard-cryptoicon-ethgbp.png';
-import GOLD from '../../assets/02-01-dashboard-cryptoicon-gold.png';
-import SILVER from '../../assets/02-01-dashboard-cryptoicon-silver.png';
 import CloseIcon from "mdi-react/CloseCircleIcon";
 import TransactionModal from './dashboardTransactionModel';
+import FTNImage from "../../components/imageList";
 
 const marks = [
     {
@@ -61,13 +49,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={BTC}
-                                    alt="BTC"
-                                />
+                                <FTNImage imageName="BTC" height={40}/>
                                 <Media.Body>
                                     <strong>BTC</strong>
                                     <p className={"noMargin"}>
@@ -83,13 +65,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -130,13 +106,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={ETH}
-                                    alt="ETH"
-                                />
+                                <FTNImage imageName="ETH" height={40}/>
                                 <Media.Body>
                                     <strong>ETHEREUM</strong>
                                     <p className={"noMargin"}>
@@ -152,13 +122,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin RedText"}>41.21</h6>
                                     <small className={"RedText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={decGraph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="decGraph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -199,13 +163,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={XRP}
-                                    alt="XRP"
-                                />
+                                <FTNImage imageName="XRP" height={40}/>
                                 <Media.Body>
                                     <strong>XRP</strong>
                                     <p className={"noMargin"}>
@@ -221,13 +179,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -268,13 +220,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={BCH}
-                                    alt="BCH"
-                                />
+                                <FTNImage imageName="BCH" height={40}/>
                                 <Media.Body>
                                     <strong>BCH</strong>
                                     <p className={"noMargin"}>
@@ -290,13 +236,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -337,13 +277,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={DASH}
-                                    alt="DASH"
-                                />
+                                <FTNImage imageName="DASH" height={40}/>
                                 <Media.Body>
                                     <strong>DASH</strong>
                                     <p className={"noMargin"}>
@@ -359,12 +293,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -405,13 +334,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={LTC}
-                                    alt="LTC"
-                                />
+                                <FTNImage imageName="LTC" height={40}/>
                                 <Media.Body>
                                     <strong>LTC</strong>
                                     <p className={"noMargin"}>
@@ -427,13 +350,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -474,13 +391,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={GOLDBTC}
-                                    alt="GOLDBTC"
-                                />
+                                <FTNImage imageName="GOLDBTC" height={40}/>
                                 <Media.Body>
                                     <strong>GOLDBTC</strong>
                                     <p className={"noMargin"}>
@@ -496,13 +407,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -543,13 +448,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={ETHBTC}
-                                    alt="ETHBTC"
-                                />
+                                <FTNImage imageName="ETHBTC" height={40}/>
                                 <Media.Body>
                                     <strong>ETHBTC</strong>
                                     <p className={"noMargin"}>
@@ -565,13 +464,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -612,13 +505,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={ETHGBP}
-                                    alt="ETHGBP"
-                                />
+                                <FTNImage imageName="ETHGBP" height={40}/>
                                 <Media.Body>
                                     <strong>ETHGBP</strong>
                                     <p className={"noMargin"}>
@@ -634,13 +521,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -681,13 +562,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={SILVER}
-                                    alt="SILVER"
-                                />
+                                <FTNImage imageName="SILVER" height={40}/>
                                 <Media.Body>
                                     <strong>SILVER</strong>
                                     <p className={"noMargin"}>
@@ -703,13 +578,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -750,13 +619,7 @@ const DashboardTable = () => {
                     <tr>
                         <td>
                             <Media as="li">
-                                <img
-                                    width={40}
-                                    height={40}
-                                    className="mr-3"
-                                    src={GOLD}
-                                    alt="GOLD"
-                                />
+                                <FTNImage imageName="GOLD" height={40}/>
                                 <Media.Body>
                                     <strong>GOLD</strong>
                                     <p className={"noMargin"}>
@@ -772,13 +635,7 @@ const DashboardTable = () => {
                                     <h6 className={"noMargin GreenText"}>41.21</h6>
                                     <small className={"GreenText"}>(2.76%)</small>
                                 </div>
-                                <img
-                                    width={"auto"}
-                                    height={40}
-                                    src={Graph}
-                                    className="tableGraphImage"
-                                    alt=""
-                                />
+                                <FTNImage imageName="Graph" height={40}/>
                             </div>
                         </td>
                         <td>
@@ -829,10 +686,10 @@ const DashboardTable = () => {
                         <th>Peoples</th>
                         <th>Change</th>
                         <th>Risk Score</th>
-                        <th></th>
+                        <th/>
                         <th>Investors</th>
-                        <th></th>
-                        <th style={{width: 10 + 'px'}}></th>
+                        <th/>
+                        <th style={{width: 10 + 'px'}}/>
                     </tr>
                     </thead>
                     <tbody>

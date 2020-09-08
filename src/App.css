@@ -331,9 +331,38 @@ Nav
     top: 7px;
 }
 
+.modal-header .close span {
+    color: white;
+    text-shadow: none;
+    opacity: 1;
+}
+
+.modal-header .close {
+    opacity: 1;
+}
+
+.modal-header {
+    align-items: center;
+}
+
+.Content {
+    padding-left: 240px;
+}
+
+.fullwidth{
+    width:100%;
+    display: block;
+}
 @media (max-width: 1025px) {
     .AppBarSearch {
         display: none !important;
     }
 }
 
+
+
+@media (max-width: 600px) {
+    .Content {
+        padding-left: 0;
+    }
+}

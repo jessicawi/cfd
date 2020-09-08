@@ -1,15 +1,15 @@
 import React from "react";
 import {Tab, Button,  Media, Dropdown,  Nav, Card} from 'react-bootstrap';
-import BTC from "../../assets/02-01-dashboard-cryptoicon-btc.png";
 import ExchangeIcon from 'mdi-react/SwapHorizontalBoldIcon';
 import TextField from "@material-ui/core/TextField";
+import FTNImage from "../../components/imageList";
 
 const DashboardTrasactionModal = () => {
 
-    const [TransactionModalShow, setTransactionModalShow] = React.useState(false);
-    const HideTransactionModal = () => {
-        setTransactionModalShow(false);
-    };
+    // const [TransactionModalShow, setTransactionModalShow] = React.useState(false);
+    // const HideTransactionModal = () => {
+    //     setTransactionModalShow(false);
+    // };
     const [ExchangeType, setExchangeType] = React.useState('UNITS');
     const [ExchangeTypeTitle, setExchangeTypeTitle] = React.useState('AMOUNT');
     const ToggleExchangeType = () => {
@@ -37,13 +37,7 @@ const DashboardTrasactionModal = () => {
                         <Tab.Pane eventKey="first">
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={BTC}
-                                        alt="BTC"
-                                    />
+                                    <FTNImage imageName="BTC" height={40}/>
                                     <Media.Body>
                                         <strong>SELL BTC</strong>
                                         <h4 className={"noMargin"}>11603.24 <small className={"GreenText"}>261.68
@@ -117,13 +111,7 @@ const DashboardTrasactionModal = () => {
                         <Tab.Pane eventKey="second">
                             <div className={"d-flex justify-content-between"}>
                                 <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={BTC}
-                                        alt="BTC"
-                                    />
+                                    <FTNImage imageName="BTC" height={40}/>
                                     <Media.Body>
                                         <strong>BUY BTC</strong>
                                         <h4 className={"noMargin"}>11603.24 <small className={"GreenText"}>261.68

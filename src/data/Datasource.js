@@ -1,28 +1,46 @@
 import {NewRequest, parseResponseAndHandleErrors, URLForEndpoint} from "./request";
 import {ERROR_SERVER_UNREACHABLE} from "../data/datasourceConst";
 import Cookies from "js-cookie";
-import {locale} from "../locale";
+import JWTDecode from "jwt-decode";
+
+// import {locale} from "../locale";
 const API_HOST = "https://tdmxapi.bclg.in";
+
 
 export default class DataSource {
 
     constructor() {
         this.token = null;
+        this._claims = null;
     }
 
     static get shared() {
         if (DataSource.instance == null || DataSource.instance === undefined) {
             DataSource.instance = new DataSource();
         }
+        let token = Cookies.get("ftnToken");
 
-        let instanceToken = DataSource.instance.token;
-        if (instanceToken === undefined || instanceToken === "null") {
-            instanceToken = Cookies.get("ftnToken");
-            console.log("instanceToken", instanceToken);
-        } else {
-            console.log('notinstance', instanceToken);
+        if (token !== undefined && token !== "null") {
+            try {
+                DataSource.instance._claims = token;
+                DataSource.instance.token = token;
+            } catch (err) {
+                console.error("Couldn't decrypt token: ", err);
+            }
         }
+
+        // let instanceToken = DataSource.instance.token;
+        // if (instanceToken === undefined || instanceToken === "null") {
+        //     instanceToken = Cookies.get("ftnToken");
+        //     console.log("instanceToken", instanceToken);
+        // } else {
+        //     console.log('notinstance', instanceToken);
+        // }
         return DataSource.instance;
+    }
+
+    get claims() {
+        return this._claims;
     }
 
     async callAPI(endPoint, method = "GET", queryObject, requestBody, hasContentType = true) {
@@ -62,9 +80,12 @@ export default class DataSource {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
                 "Authorization": "Bearer " + this.token
             },
-            body: formBody,
             method: method,
         };
+
+        if (method !== "GET" && formBody) {
+            request.body = formBody;
+        }
 
         let response;
         try {
@@ -75,6 +96,51 @@ export default class DataSource {
         }
 
         return response.json();
+    }
+
+    async callImageApi(endPoint, method = "GET", queryObject, requestBody) {
+        const url = URLForEndpoint(endPoint, queryObject);
+
+
+        let formBody = [];
+        for (let property in requestBody) {
+            const encodedKey = encodeURIComponent(property);
+            const encodedValue = encodeURIComponent(requestBody[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
+
+
+        const request = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                "Authorization": "Bearer " + this.token
+            },
+            method: method,
+        };
+
+        if (method !== "GET" && formBody) {
+            request.body = formBody;
+        }
+
+        let response;
+        try {
+            response = await fetch(url, request);
+            if (response) {
+                return await response.blob();
+
+
+                // const objectURL = URL.createObjectURL(blob);
+                // console.log("objectURL", objectURL);
+                //
+            }
+
+        } catch (err) {
+            console.log('err', err);
+            throw ERROR_SERVER_UNREACHABLE;
+        }
+console.log('aaaaaaaaaa',response)
+        return response;
     }
 
     // by default, withToken set to true
@@ -106,8 +172,8 @@ export default class DataSource {
             data.UserName_Session = Cookies.get('userNameSession');
             data.UserSchoolName_Session = Cookies.get('userSchoolNameSession');
             data.UserSchoolInfoSerialize_Session = Cookies.get('userSchoolInfoSerializeSession');
-            const extendTime = Cookies.get('extendTime');
-            const expireTime = Cookies.get('expireTime');
+            // const extendTime = Cookies.get('extendTime');
+            // const expireTime = Cookies.get('expireTime');
             // const nowMs = getMs();
 
 
@@ -137,8 +203,11 @@ export default class DataSource {
         };
         try {
             const response = await this.callAPI2("/token", "POST", null, data);
-            Cookies.set("ftnToken", response.access_token);
             this.token = response.access_token;
+            await Cookies.set("ftnToken", response.access_token);
+            let tempToken = Cookies.get("ftnToken");
+            console.log(tempToken, "token");
+
             return response;
 
         } catch (e) {
@@ -146,14 +215,15 @@ export default class DataSource {
         }
     }
 
-    async Logout(){
+    async Logout() {
+        await Cookies.remove("ftnToken");
         this.token = '';
+        this._claims = null;
     }
 
-    async checkToken(){
-        if(this.token){
-            return this.token;
-        }
+    async checkToken() {
+        let tempToken = Cookies.get("ftnToken");
+        return tempToken;
     }
 
     // async UpdatePasswordVerification() {
@@ -303,14 +373,15 @@ export default class DataSource {
     // }
     //
     //
-    // async getProfile(){
-    //     try {
-    //         const response = await this.callAPI2("/api/v1/Member/GetProfile", "GET", null, null);
-    //         return response;
-    //     } catch (e) {
-    //         throw e;
-    //     }
-    // }
+    async getProfile() {
+        try {
+            const response = await this.callAPI2("/api/v1/Member/GetProfile", "GET", null, null);
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
+
     //
     // async updateProfile(FullName,Email,MobileDialCode,MobileNo,DocumentNumber,SecondPassword,SMSVerificationDigit){
     //     const data = {
@@ -396,19 +467,19 @@ export default class DataSource {
     // }
     //
     //
-    // async postTeam(MemberSearch,MemberID){
-    //     const data = {
-    //         MemberSearch: MemberSearch,
-    //         MemberID: MemberID
-    //     };
-    //     console.log(data)
-    //     try {
-    //         const response = await this.callAPI2("/api/v1/Member/PostMyTeam", "POST", null, data);
-    //         return response;
-    //     } catch (e) {
-    //         throw e;
-    //     }
-    // }
+    async postTeam(MemberSearch, MemberID) {
+        const data = {
+            MemberSearch: MemberSearch,
+            MemberID: MemberID
+        };
+        try {
+            const response = await this.callAPI2("/api/v1/Member/PostMyTeam", "POST", null, data);
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
+
     //
     // async getReportGroupSales(){
     //     try {
@@ -454,6 +525,68 @@ export default class DataSource {
     //         throw e;
     //     }
     // }
+
+    async getArticleList() {
+        try {
+            const response = await this.callAPI2("/api/v1/CMS/GetArticleList", "GET", null, null);
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async getMarketRateList() {
+        try {
+            const response = await this.callAPI2("/api/v1/Crypto/GetMarketRateList", "GET", null, null);
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async postArticle(ContentText, Graphic1, Graphic2, Graphic3, ArticleLinkMarket1, ArticleLinkMarket2, ArticleLinkMarket3) {
+        const data = {
+            ContentText: ContentText,
+            Graphic1: Graphic1,
+            Graphic2: Graphic2,
+            Graphic3: Graphic3,
+            ArticleLinkMarket1: ArticleLinkMarket1,
+            ArticleLinkMarket2: ArticleLinkMarket2,
+            ArticleLinkMarket3: ArticleLinkMarket3
+        };
+        try {
+            const response = await this.callAPI2("/api/v1/CMS/PostArticle", "POST", null, data);
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async PostContractAmountOption(SecondPassword, Price, CustomText) {
+        const data = {
+            PackageID: 1,
+            PointDeductionMethod: 1,
+            SecondPassword: SecondPassword,
+            Price: Price,
+            CustomText: CustomText,
+        };
+        try {
+            const response = await this.callAPI2("/api/v1/Contract/PostContractAmountOption", "POST", null, data);
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async GetERC20Address() {
+        try {
+            const response = await this.callImageApi("/api/v1/QRCode/GetERC20Address", "GET", null, null);
+            console.log('hhhhhhhhhhhh',response);
+            return response;
+        } catch (e) {
+            throw e;
+        }
+    }
 
 }
 

@@ -35,22 +35,22 @@ function NewRequest(method, authToken = null, hasContentType = true) {
     };
 }
 
-function NewWWWRequest(method, authToken = null, hasContentType = true) {
-    const headers = new Headers();
-    if (hasContentType) {
-        headers.append("Content-Type", "application/json");
-    }
-
-    if (authToken !== null) {
-        headers.append("Authorization", "Bearer " + authToken);
-    }
-
-    // Return fetch request body
-    return {
-        method,
-        headers,
-    };
-}
+// function NewWWWRequest(method, authToken = null, hasContentType = true) {
+//     const headers = new Headers();
+//     if (hasContentType) {
+//         headers.append("Content-Type", "application/json");
+//     }
+//
+//     if (authToken !== null) {
+//         headers.append("Authorization", "Bearer " + authToken);
+//     }
+//
+//     // Return fetch request body
+//     return {
+//         method,
+//         headers,
+//     };
+// }
 
 
 function NewHtmlRequest(method, authToken = null) {

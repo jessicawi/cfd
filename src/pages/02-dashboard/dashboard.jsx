@@ -1,6 +1,4 @@
 import React from "react";
-import clsx from 'clsx';
-import {lighten, makeStyles} from "@material-ui/core/styles/makeStyles";
 import Box from '@material-ui/core/Box';
 import DashboardTable from './dashboardTable';
 import {Dropdown, Row, Col} from 'react-bootstrap';
@@ -11,7 +9,6 @@ import ListIcon from 'mdi-react/ViewListOutlineIcon';
 import Settings from 'mdi-react/SettingsIcon';
 import Button from "@material-ui/core/Button";
 import DashboardGrid from "./dashboardgrid";
-import TopBar from "../../layout/layout";
 
 const Dashboard = () => {
 
@@ -31,12 +28,10 @@ const Dashboard = () => {
             setViewTypeIcon(<ViewIcon/>);
             setDashboardContent(<DashboardGrid/>);
             setViewType("grid");
-            console.log("gotogrid")
         } else {
             setViewTypeIcon(<ListIcon/>);
             setDashboardContent(<DashboardTable/>);
             setViewType("list");
-            console.log("gotolist")
 
         }
 
@@ -45,8 +40,6 @@ const Dashboard = () => {
 
     return (
         <React.Fragment>
-            <Box height="64px"> </Box>
-            <TopBar/>
             <div className={"topBar d-flex  justify-content-between"}>
                 <div className={""}>
                     <Dropdown className={"margin-15"}>

@@ -1,0 +1,52 @@
+.MuiDropzoneArea-root {
+    border: 0 !important;
+    background: #f3f3f9 !important;
+    min-height: 0 !important;
+    padding: 20px 0 !important;
+    outline: 0;
+}
+
+.MuiDropzoneArea-text {
+    margin: 0px !important;
+    font-size: 20px !important;
+    margin-right: 10px !important;
+}
+
+.MuiDropzoneArea-icon {
+    width: 43px !important;
+    height: auto !important;
+}
+
+.MuiDropzonePreviewList-imageContainer {
+    padding: 0px !important;
+}
+
+.MuiGrid-spacing-xs-8 {
+    margin: 20px 0px 5px !important;
+    width: 100% !important;
+}
+
+.MuiDropzonePreviewList-image {
+    width: 130px !important;
+    height: 130px !important;
+    object-fit: cover !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: 1px solid #cccc !important;
+}
+
+.MuiDropzonePreviewList-removeButton {
+    box-shadow: none !important;
+    background: #dc3545 !important;
+    color: white !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-height: 0 !important;
+    right: 0px !important;
+}
+
+.MuiDropzoneArea-textContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

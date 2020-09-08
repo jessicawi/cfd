@@ -1,27 +1,92 @@
-import React from "react";
-import {lighten, makeStyles} from "@material-ui/core/styles/makeStyles";
-import {Dropdown, Row, Col, Media, Card, Button, Form, OverlayTrigger, Popover, Tabs, Tab} from 'react-bootstrap';
-import MoreVert from 'mdi-react/MoreVertIcon';
+import React, {useEffect, useState} from "react";
+import {Dropdown, Row, Col, Media, Card, Button, Form, OverlayTrigger, Popover, Tabs, Tab, Modal} from 'react-bootstrap';
 import Container from "@material-ui/core/Container";
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
-import LikeIcon from 'mdi-react/LikeIcon';
-import CommentIcon from 'mdi-react/CommentIcon';
-import FacebookIcon from 'mdi-react/FacebookIcon';
-import TwitterIcon from 'mdi-react/TwitterIcon';
-import LinkedinIcon from 'mdi-react/LinkedinIcon';
-import EmailBoxIcon from 'mdi-react/EmailBoxIcon';
+import DownIcon from '@material-ui/icons/ArrowDropDown';
 import FileEyeIcon from 'mdi-react/FileEyeIcon';
 import ChartPieIcon from 'mdi-react/ChartPieIcon';
-import LinkIcon from 'mdi-react/LinkIcon';
 import './feed.css';
-import BTC from "../../assets/02-01-dashboard-cryptoicon-btc.png";
+import FTNImage from "../../components/imageList";
+import Datasource from '../../data/datasource';
+import moment from 'moment';
+import CloseIcon from "mdi-react/CloseCircleIcon";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import CopyModal from '../../components/transactionModal/copyModal';
+import Snackbar from '@material-ui/core/Snackbar';
 
 const FeedList = () => {
-
     //handle Dropdown
     const [list, setList] = React.useState('News Feed');
     const [WatchlistList, setWatchlistList] = React.useState('My Watchlist');
     const [PortfolioList, setPortfolioList] = React.useState('Top Gainers');
+    const [articleList, setArticleList] = useState([]);
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [TransactionModalShow, setTransactionModalShow] = React.useState(false);
+    const [copyData, setCopyData] = React.useState([]);
+    const [notification, setNotification] = React.useState({
+        open: false,
+        message: ''
+    });
+    const showModal = (data) => {
+        setTransactionModalShow(true);
+        setCopyData(data);
+    };
+    const hideModal = () => {
+        setTransactionModalShow(false);
+    };
+
+    const getArticleList = async () => {
+        setIsLoading(true);
+        const response = await Datasource.shared.getArticleList();
+        if (response && response.Data) {
+            const data = response.Data.ItemList;
+
+            let index = 0;
+            for (const item of data) {
+                const response = await Datasource.shared.postTeam('', item.MemberID);
+                let teamArray = response.Data.ItemList;
+                if (item.ImageFilePath1) {
+                    item.ImageFilePath1 = 'https://tdmxapi.bclg.in' + item.ImageFilePath1.substr(1);
+                }
+                if (item.ImageFilePath2) {
+                    item.ImageFilePath2 = 'https://tdmxapi.bclg.in' + item.ImageFilePath2.substr(1);
+                }
+                if (item.ImageFilePath3) {
+                    item.ImageFilePath3 = 'https://tdmxapi.bclg.in' + item.ImageFilePath3.substr(1);
+                }
+                if (item.MarketImageFilePath1) {
+                    item.MarketImageFilePath1 = 'https://tdmxapi.bclg.in' + item.MarketImageFilePath1.substr(1);
+                }
+                const member = teamArray.find(d => d.MemberID === item.MemberID);
+                if (member) {
+                    item.name = member.LoginName;
+                } else {
+                    item.name = 'User';
+                }
+                index++;
+            }
+            setArticleList(data);
+        }
+        setIsLoading(false);
+    };
+
+    useEffect(() => {
+        getArticleList();
+    }, []);
+    console.log(articleList);
+
+    function Loading() {
+        if (isLoading) {
+            return (
+                <div style={{display: 'table', margin: '20px auto 0'}}>
+                    <CircularProgress isLoading={true} style={{margin: 'auto'}}/>
+                </div>
+            );
+        } else {
+            return null;
+        }
+    }
+
     const handleTableType = (type) => {
         setList(type);
     };
@@ -46,9 +111,127 @@ const FeedList = () => {
         </div>
     );
 
+    const showNotification = (Message) => {
+        setNotification({open: true, message: Message});
+    };
+
+    const FeedItem = articleList.map((d, index) => {
+        return (
+            <div className={"feedItem"} key={index}>
+                <div className={"d-flex justify-content-between"}>
+                    <Media as="li">
+                        <FTNImage imageName="PROFILE" height={40} className="mr-3"/>
+
+                        <Media.Body>
+                            <strong>{d.name}</strong>
+                            <div className="noMargin">
+                                <small>{moment(d.ModifiedOn).format('YYYY-MM-DD hh:mm')}</small>
+                            </div>
+                        </Media.Body>
+                    </Media>
+                </div>
+                <div className={"mt-3"}> {d.ContentText}{d.RankingID}</div>
+                {d.ItemList.map(item => {
+                    return (
+                        <div>
+                            {
+                                (() => {
+                                    if (Number(d.RankingID) === 6 || Number(d.RankingID) > 6) {
+                                        console.log('got', d.RankingID);
+                                        return (
+                                            <div>
+                                                <Card className={"mt-3"}>
+                                                    <Card.Body>
+                                                        <Card.Text>
+                                                            <div className={"d-flex justify-content-between"}>
+                                                                <Media as="li">
+                                                                    {
+                                                                        (() => {
+                                                                            if (item.ImageFilePath1) {
+                                                                                return (
+                                                                                    <img
+                                                                                        width={40}
+                                                                                        height={40}
+                                                                                        className="mr-3"
+                                                                                        src={item.ImageFilePath1}
+                                                                                        alt="Generic placeholder"
+                                                                                    />
+                                                                                );
+                                                                            } else {
+                                                                                return (
+                                                                                    <FTNImage imageName="DEFAULT"
+                                                                                              height={40}/>
+                                                                                );
+                                                                            }
+                                                                        })()
+                                                                    }
+                                                                    <Media.Body>
+                                                                        <strong>{item.Name}</strong>
+                                                                    </Media.Body>
+                                                                </Media>
+                                                                {(() => {
+                                                                    if (Number(item.ChangePrice) > 0 || Number(item.ChangePrice) === 0) {
+                                                                        return (
+                                                                            <div className={"Flex"}>
+                                                                                <UpIcon className={"GreenText"}/>
+                                                                                <div>
+                                                                                    <h6 className={"noMargin GreenText"}>{Number(item.PriceCurrent).toFixed(2)}</h6>
+                                                                                    <small
+                                                                                        className={"GreenText"}>{Number(item.ChangePrice).toFixed(2)}({Number(item.ChangePercentage).toFixed(2)}%)
+                                                                                    </small>
+                                                                                </div>
+                                                                            </div>
+                                                                        );
+                                                                    } else {
+                                                                        return (
+                                                                            <div className={"Flex"}>
+                                                                                <DownIcon className={"RedText"}/>
+                                                                                <div>
+                                                                                    <h6 className={"noMargin RedText"}>{Number(item.PriceCurrent).toFixed(2)}</h6>
+                                                                                    <small
+                                                                                        className={"RedText"}>{Number(item.ChangePrice).toFixed(2)}({Number(item.ChangePercentage).toFixed(2)}%)
+                                                                                    </small>
+                                                                                </div>
+                                                                            </div>
+                                                                        );
+                                                                    }
+                                                                })()}
+                                                            </div>
+                                                            <hr/>
+                                                            <div className={"d-flex flex-row-reverse"}>
+                                                                <Button variant="primary"
+                                                                        onClick={() => showModal(d)}>
+                                                                    COPY
+                                                                </Button>
+                                                            </div>
+                                                        </Card.Text>
+                                                    </Card.Body>
+                                                </Card>
+                                            </div>
+                                        );
+                                    }
+                                })()
+                            }
+                        </div>
+                    );
+                })}
+                <div>
+                    <img src={d.ImageFilePath1} alt={""}/>
+                    <img src={d.ImageFilePath2} alt={""}/>
+                    <img src={d.ImageFilePath3} alt={""}/>
+                </div>
+            </div>
+        );
+    });
+
+
+    const handleClose = () => {
+        setNotification({open: false});
+    };
+
     return (
         <React.Fragment>
-            <div className={"topBar d-flex  justify-content-between"}>
+            <div className={"topBar d-flex  justify-content-between"} style={{paddingTop: 70}}>
                 <div className={""}>
                     <Dropdown className={"margin-15"}>
                         <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -68,266 +251,9 @@ const FeedList = () => {
             <Container>
                 <Row>
                     <Col md={"8"} className={""}>
-                        <div className={"feedItem"}>
-                            <div className={"d-flex justify-content-between"}>
-                                <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={"https://pbs.twimg.com/profile_images/2961132879/8f4c848f586257f2cc8df7007d71c8d0.jpeg"}
-                                        alt="Generic placeholder"
-                                    />
-                                    <Media.Body>
-                                        <strong>Oliver Danvel</strong>
-                                        <p className={"noMargin"}>
-                                            Oliver Jean Anne . <small>35 Minutes Ago</small>
-                                        </p>
-                                    </Media.Body>
-                                </Media>
-
-                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
-                                    <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                        <MoreVert/>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item>Delete</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </div>
-                            <div className={"mt-3"}> if this thing cracks 12k I think we will get a bull run, like
-                                Pamplona style. Shall we push it there?
-                            </div>
-
-                            <Card className={"mt-3"}>
-                                <Card.Body>
-                                    <Card.Text>
-                                        <div className={"d-flex justify-content-between"}>
-                                            <Media as="li">
-                                                <img
-                                                    width={40}
-                                                    height={40}
-                                                    className="mr-3"
-                                                    src={BTC}
-                                                    alt="Generic placeholder"
-                                                />
-                                                <Media.Body>
-                                                    <strong>BTC</strong>
-                                                    <p className={"noMargin"}>
-                                                        Bitcoin
-                                                    </p>
-                                                </Media.Body>
-                                            </Media>
-
-                                            <div className={"Flex"}>
-                                                <UpIcon className={"GreenText"}/>
-                                                <div>
-                                                    <h6 className={"noMargin GreenText"}>41.21</h6>
-                                                    <small className={"GreenText"}>(2.76%)</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div className={"d-flex flex-row-reverse"}>
-                                            <Button variant="primary">
-                                                TRADE
-                                            </Button>
-                                        </div>
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                            <div className={"textButton mt-3"}>
-                                <Button variant="primary" size='sm'>
-                                    <LikeIcon/> 2
-                                </Button>
-                                <Button variant="primary" size='sm'>
-                                    <CommentIcon/> 2
-                                </Button>
-                            </div>
-                            <hr/>
-                            <div className={"feed-commentNav d-flex justify-content-center text-center liteButton"}>
-                                <Button variant="primary" className={"flex-fill"}>Like</Button>
-                                <Button variant="primary" className={"flex-fill"}>Comment</Button>
-                                <OverlayTrigger
-                                    trigger="focus"
-                                    key={'top'}
-                                    placement={'top'}
-                                    overlay={
-                                        <Popover id={'popover-positioned-top'}>
-                                            <Popover.Content className={"textButton"}>
-                                                <Button variant="primary"><FacebookIcon/></Button>
-                                                <Button variant="primary"><TwitterIcon/></Button>
-                                                <Button variant="primary"><LinkedinIcon/></Button>
-                                                <Button variant="primary"><EmailBoxIcon/></Button>
-                                                <Button variant="primary"><LinkIcon/></Button>
-                                            </Popover.Content>
-                                        </Popover>
-                                    }
-                                >
-                                    <Button variant="secondary" className={'flex-fill'}>Share</Button>
-                                </OverlayTrigger>
-                            </div>
-                            <div className={"feed-commentBox"}>
-                                <div className={"d-flex justify-content-between "}>
-                                    <Media as="li">
-                                        <img
-                                            width={40}
-                                            height={40}
-                                            className="mr-3"
-                                            src={"https://pbs.twimg.com/profile_images/2961132879/8f4c848f586257f2cc8df7007d71c8d0.jpeg"}
-                                            alt="Generic placeholder"
-                                        />
-                                        <Media.Body>
-                                            <strong>Oliver Danvel</strong> . <small>35 Minutes Ago</small>
-                                            <div>
-                                                <span>if this thing cracks 12k I think we will get a bull run, like Pamplona style. Shall we push it there?</span>
-                                            </div>
-
-                                            <div className={"textButton"}>
-                                                <Button variant="primary" size='sm'>
-                                                    Like
-                                                </Button>
-                                                .
-
-                                                <Button variant="primary" size='sm'>
-                                                    Reply
-                                                </Button>
-                                            </div>
-                                        </Media.Body>
-                                    </Media>
-
-                                    <Dropdown className={"dropdownWithoutCaret liteButton"}>
-                                        <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                            <MoreVert/>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item>Delete</Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                                <div className={"d-flex justify-content-between mt-3"}>
-                                    <Media as="li">
-                                        <img
-                                            width={40}
-                                            height={40}
-                                            className="mr-3"
-                                            src={"https://pbs.twimg.com/profile_images/2961132879/8f4c848f586257f2cc8df7007d71c8d0.jpeg"}
-                                            alt="Generic placeholder"
-                                        />
-                                        <Media.Body>
-                                            <strong>Oliver Danvel</strong> . <small>35 Minutes Ago</small>
-                                            <div>
-                                                <span>if this thing cracks 12k I think we will get a bull run, like Pamplona style. Shall we push it there?</span>
-                                            </div>
-
-                                            <div className={"textButton"}>
-                                                <Button variant="primary" size='sm'>
-                                                    Like
-                                                </Button>
-                                                .
-
-                                                <Button variant="primary" size='sm'>
-                                                    Reply
-                                                </Button>
-                                            </div>
-                                        </Media.Body>
-                                    </Media>
-
-                                    <Dropdown className={"dropdownWithoutCaret liteButton"}>
-                                        <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                            <MoreVert/>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item>Delete</Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-
-                                <Media as="li" className={"mt-3"}>
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={"https://pbs.twimg.com/profile_images/2961132879/8f4c848f586257f2cc8df7007d71c8d0.jpeg"}
-                                        alt="Generic placeholder"
-                                    />
-                                    <Media.Body>
-                                        <Form.Control type="text" placeholder="Write a comment..."/>
-                                    </Media.Body>
-                                </Media>
-
-
-                            </div>
-                        </div>
-                        <div className={"feedItem"}>
-                            <div className={"d-flex justify-content-between"}>
-                                <Media as="li">
-                                    <img
-                                        width={40}
-                                        height={40}
-                                        className="mr-3"
-                                        src={"https://pbs.twimg.com/profile_images/2961132879/8f4c848f586257f2cc8df7007d71c8d0.jpeg"}
-                                        alt="Generic placeholder"
-                                    />
-                                    <Media.Body>
-                                        <strong>Oliver Danvel</strong>
-                                        <p className={"noMargin"}>
-                                            Oliver Jean Anne . <small>35 Minutes Ago</small>
-                                        </p>
-                                    </Media.Body>
-                                </Media>
-
-                                <Dropdown className={"dropdownWithoutCaret liteButton"}>
-                                    <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                        <MoreVert/>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item>Delete</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </div>
-                            <div className={"mt-3"}> if this thing cracks 12k I think we will get a bull run, like
-                                Pamplona style. Shall we push it there?
-                            </div>
-                            <div>
-                                <img
-                                    src={"https://pix10.agoda.net/hotelImages/1259471/-1/dac9a50c8306963f88c512700bd55d39.jpg?s=1024x768"}
-                                    className={"img-fluid mt-3"}/>
-                            </div>
-                            <div className={"textButton mt-3"}>
-                                <Button variant="primary" size='sm'>
-                                    <LikeIcon/> 2
-                                </Button>
-                                <Button variant="primary" size='sm'>
-                                    <CommentIcon/> 2
-                                </Button>
-                            </div>
-                            <hr/>
-                            <div className={"feed-commentNav d-flex justify-content-center text-center liteButton"}>
-                                <Button variant="primary" className={"flex-fill"}>Like</Button>
-                                <Button variant="primary" className={"flex-fill"}>Comment</Button>
-                                <OverlayTrigger
-                                    trigger="focus"
-                                    key={'top'}
-                                    placement={'top'}
-                                    overlay={
-                                        <Popover id={'popover-positioned-top'}>
-                                            <Popover.Content className={"textButton"}>
-                                                <Button variant="primary"><FacebookIcon/></Button>
-                                                <Button variant="primary"><TwitterIcon/></Button>
-                                                <Button variant="primary"><LinkedinIcon/></Button>
-                                                <Button variant="primary"><EmailBoxIcon/></Button>
-                                                <Button variant="primary"><LinkIcon/></Button>
-                                            </Popover.Content>
-                                        </Popover>
-                                    }
-                                >
-                                    <Button variant="secondary" className={'flex-fill'}>Share</Button>
-                                </OverlayTrigger>
-                            </div>
-                        </div>
+                        <Loading/>
+                        {FeedItem}
                     </Col>
-
                     <Col md={"4"}>
                         <div className={'feedItem text-center'}>
                             <h2 className={'noMargin'}>
@@ -338,9 +264,7 @@ const FeedList = () => {
                                 <small><strong>No Data to Display</strong></small>
                             </div>
                         </div>
-
                         <div className={'feedItem text-center mt-4'}>
-
                             <Tabs defaultActiveKey="portfolio" className={"tabsBorder text-center"}>
                                 <Tab eventKey="portfolio" title={PortfolioTitle}>
                                     <Dropdown className={"margin-15 liteButton"}>
@@ -354,12 +278,10 @@ const FeedList = () => {
                                                 Losers</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
-
                                     <div className={'Notice Notice-Empty'}>
                                         <ChartPieIcon/>
                                         <span>Portfolio is empty </span>
                                     </div>
-
                                     <hr/>
                                     <div className={'liteButton'}>
                                         <Button className={''} variant="primary">
@@ -379,7 +301,6 @@ const FeedList = () => {
                                                 Invested</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
-
                                     <div className={'d-flex align-items-center justify-content-between mb-3'}>
                                         <Media as="li">
                                             <img
@@ -391,9 +312,9 @@ const FeedList = () => {
                                             />
                                             <Media.Body className={'text-left '}>
                                                 <strong>Oliver Danvel</strong>
-                                                <p className={"noMargin"}>
+                                                <div className="noMargin">
                                                     Oliver Jean Anne
-                                                </p>
+                                                </div>
                                             </Media.Body>
                                         </Media>
                                         <div>
@@ -411,9 +332,9 @@ const FeedList = () => {
                                             />
                                             <Media.Body className={'text-left '}>
                                                 <strong>Oliver Danvel</strong>
-                                                <p className={"noMargin"}>
+                                                <div className="noMargin">
                                                     Oliver Jean Anne
-                                                </p>
+                                                </div>
                                             </Media.Body>
                                         </Media>
                                         <div>
@@ -431,16 +352,15 @@ const FeedList = () => {
                                             />
                                             <Media.Body className={'text-left '}>
                                                 <strong>Oliver Danvel</strong>
-                                                <p className={"noMargin"}>
+                                                <div className="noMargin">
                                                     Oliver Jean Anne
-                                                </p>
+                                                </div>
                                             </Media.Body>
                                         </Media>
                                         <div>
                                             <Button variant="primary"> COPY </Button>
                                         </div>
                                     </div>
-
                                     <hr/>
                                     <div className={'liteButton'}>
                                         <Button className={''} variant="primary">
@@ -449,11 +369,30 @@ const FeedList = () => {
                                     </div>
                                 </Tab>
                             </Tabs>
-
                         </div>
                     </Col>
                 </Row>
             </Container>
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+                open={notification.open}
+                onClose={handleClose}
+                message={notification.message}
+                key={'top' + 'right'}
+            />
+            <Modal centered show={TransactionModalShow} onHide={hideModal} className={'dashModel'}>
+                <Modal.Header closeButton style={{backgroundColor: '#333', color: 'white'}}>
+                    <Modal.Title>Copy Trade</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Button variant="primary" className={'modalClose'} onClick={hideModal}> <CloseIcon/>
+                    </Button>
+                    <CopyModal copyData={copyData} onHideModal={hideModal} onShowNotification={showNotification}/>
+                </Modal.Body>
+            </Modal>
         </React.Fragment>
     );
 };

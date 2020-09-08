@@ -89,11 +89,11 @@ const SideBar = (props) => {
                 {/*<ListItem button key={"Watchlist"}>
                     <ListItemIcon><VisibilityIcon/></ListItemIcon>
                     <ListItemText primary={"Watchlist"}/>
-                </ListItem>*/}
+                </ListItem>
                 <ListItem button key={"Portfolio"}>
                     <ListItemIcon><AmpStoriesIcon/></ListItemIcon>
                     <ListItemText primary={"Portfolio"}/>
-                </ListItem>
+                </ListItem>*/}
                 <ListItem button key={"News Feed"} as={Link} to="/feed">
                     <ListItemIcon><DashboardIcon/></ListItemIcon>
                     <Link to="/feed"><ListItemText primary={"News Feed"}/></Link>

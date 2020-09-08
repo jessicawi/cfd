@@ -1,5 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {Dropdown, Row, Col, Media, Card, Button, Form, OverlayTrigger, Popover, Tabs, Tab, Modal} from 'react-bootstrap';
+import {
+    Dropdown,
+    Row,
+    Col,
+    Media,
+    Card,
+    Button,
+    Form,
+    OverlayTrigger,
+    Popover,
+    Tabs,
+    Tab,
+    Modal
+} from 'react-bootstrap';
 import Container from "@material-ui/core/Container";
 import UpIcon from 'mdi-react/ArrowDropUpIcon';
 import DownIcon from '@material-ui/icons/ArrowDropDown';
@@ -13,6 +26,9 @@ import CloseIcon from "mdi-react/CloseCircleIcon";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import CopyModal from '../../components/transactionModal/copyModal';
 import Snackbar from '@material-ui/core/Snackbar';
+import Carousel from 'react-bootstrap/Carousel';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
 const FeedList = () => {
     //handle Dropdown
@@ -45,18 +61,18 @@ const FeedList = () => {
             for (const item of data) {
                 const response = await Datasource.shared.postTeam('', item.MemberID);
                 let teamArray = response.Data.ItemList;
-                if (item.ImageFilePath1) {
-                    item.ImageFilePath1 = 'https://tdmxapi.bclg.in' + item.ImageFilePath1.substr(1);
-                }
-                if (item.ImageFilePath2) {
-                    item.ImageFilePath2 = 'https://tdmxapi.bclg.in' + item.ImageFilePath2.substr(1);
-                }
-                if (item.ImageFilePath3) {
-                    item.ImageFilePath3 = 'https://tdmxapi.bclg.in' + item.ImageFilePath3.substr(1);
-                }
-                if (item.MarketImageFilePath1) {
-                    item.MarketImageFilePath1 = 'https://tdmxapi.bclg.in' + item.MarketImageFilePath1.substr(1);
-                }
+                // if (item.ImageFilePath1) {
+                //     item.ImageFilePath1 = 'https://tdmxapi.bclg.in' + item.ImageFilePath1.substr(1);
+                // }
+                // if (item.ImageFilePath2) {
+                //     item.ImageFilePath2 = 'https://tdmxapi.bclg.in' + item.ImageFilePath2.substr(1);
+                // }
+                // if (item.ImageFilePath3) {
+                //     item.ImageFilePath3 = 'https://tdmxapi.bclg.in' + item.ImageFilePath3.substr(1);
+                // }
+                // if (item.MarketImageFilePath1) {
+                //     item.MarketImageFilePath1 = 'https://tdmxapi.bclg.in' + item.MarketImageFilePath1.substr(1);
+                // }
                 const member = teamArray.find(d => d.MemberID === item.MemberID);
                 if (member) {
                     item.name = member.LoginName;
@@ -121,7 +137,6 @@ const FeedList = () => {
                 <div className={"d-flex justify-content-between"}>
                     <Media as="li">
                         <FTNImage imageName="PROFILE" height={40} className="mr-3"/>
-
                         <Media.Body>
                             <strong>{d.name}</strong>
                             <div className="noMargin">
@@ -131,6 +146,63 @@ const FeedList = () => {
                     </Media>
                 </div>
                 <div className={"mt-3"}> {d.ContentText}{d.RankingID}</div>
+                {/*<div>*/}
+                {/*asd{d.ImageFilePath1}*/}
+                {/*<img src={d.ImageFilePath1} alt={""}/>*/}
+                {/*<img src={d.ImageFilePath2} alt={""}/>*/}
+                {/*<img src={d.ImageFilePath3} alt={""}/>*/}
+                {/*</div>*/}
+                {(() => {
+                    if (d.ImageFilePath1) {
+                        return (
+                            <Carousel
+                                interval={null}
+                                nextIcon={<NavigateNextIcon/>}
+                                prevIcon={<NavigateBeforeIcon/>}
+                            >
+                                {(() => {
+                                    if (d.ImageFilePath1) {
+                                        return (
+                                            <Carousel.Item>
+                                                <img
+                                                    className="d-block w-100"
+                                                    src={d.ImageFilePath1}
+                                                    alt=""
+                                                />
+                                            </Carousel.Item>
+                                        );
+                                    }
+                                })()}
+                                {(() => {
+                                    if (d.ImageFilePath2) {
+                                        return (
+                                            <Carousel.Item>
+                                                <img
+                                                    className="d-block w-100"
+                                                    src={d.ImageFilePath2}
+                                                    alt=""
+                                                />
+                                            </Carousel.Item>
+                                        );
+                                    }
+                                })()}
+                                {(() => {
+                                    if (d.ImageFilePath3) {
+                                        return (
+                                            <Carousel.Item>
+                                                <img
+                                                    className="d-block w-100"
+                                                    src={d.ImageFilePath3}
+                                                    alt=""
+                                                />
+                                            </Carousel.Item>
+                                        );
+                                    }
+                                })()}
+                            </Carousel>
+                        );
+                    }
+                })()}
                 {d.ItemList.map(item => {
                     return (
                         <div>
@@ -215,11 +287,6 @@ const FeedList = () => {
                         </div>
                     );
                 })}
-                <div>
-                    <img src={d.ImageFilePath1} alt={""}/>
-                    <img src={d.ImageFilePath2} alt={""}/>
-                    <img src={d.ImageFilePath3} alt={""}/>
-                </div>
             </div>
         );
     });
@@ -228,7 +295,6 @@ const FeedList = () => {
     const handleClose = () => {
         setNotification({open: false});
     };
-
     return (
         <React.Fragment>
             <div className={"topBar d-flex  justify-content-between"} style={{paddingTop: 70}}>

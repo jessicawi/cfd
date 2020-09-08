@@ -31,3 +31,19 @@
 .editor :global(.public-DraftEditor-content) {
     min-height: 140px;
 }
+
+.carousel-inner img {
+    width: 300px !important;
+    height: 300px;
+    object-fit: contain;
+    margin: auto;
+}
+.carousel-control-next, .carousel-control-prev {
+    color: white !important;
+}
+
+.carousel.slide {
+    background: #191920;
+    border-radius: 5px;
+    margin: 10px 0;
+}

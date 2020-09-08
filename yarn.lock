@@ -1101,6 +1101,13 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.0.0.tgz?cache=0&sync_timestamp=1596638737543&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.0.0.tgz#adeb78fedfc855aa05bc041640f3f6f98e85424c"
+  integrity sha1-ret4/t/IVaoFvAQWQPP2+Y6FQkw=
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@babel/runtime@7.9.0":
   version "7.9.0"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.9.0.tgz?cache=0&sync_timestamp=1596638737543&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.9.0.tgz#337eda67401f5b066a6f205a3113d4ac18ba495b"
@@ -1108,7 +1115,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.11.2"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.11.2.tgz?cache=0&sync_timestamp=1596638737543&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
   integrity sha1-9UnBPHVMxAuHZEufqfCaapX+BzY=
@@ -7003,6 +7010,11 @@ jwt-decode@^2.2.0:
   resolved "https://registry.npm.taobao.org/jwt-decode/download/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
   integrity sha1-fYa9VmefWM5qhHBKZX3TkruoGnk=
 
+keycode@^2.1.7:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/keycode/download/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
+  integrity sha1-PQr1bce4uOXLqNCpfxByBO7CKwQ=
+
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/killable/download/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -9274,7 +9286,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -9536,6 +9548,15 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha1-Hc+0WatnHVP2YKmRUTyy8KBVMQg=
 
+react-event-listener@^0.6.0:
+  version "0.6.6"
+  resolved "https://registry.npm.taobao.org/react-event-listener/download/react-event-listener-0.6.6.tgz#758f7b991cad9086dd39fd29fad72127e1d8962a"
+  integrity sha1-dY97mRytkIbdOf0p+tchJ+HYlio=
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    prop-types "^15.6.0"
+    warning "^4.0.1"
+
 react-is@^16.12.0, react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -9648,6 +9669,37 @@ react-scripts@3.4.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-swipeable-views-core@^0.13.7:
+  version "0.13.7"
+  resolved "https://registry.npm.taobao.org/react-swipeable-views-core/download/react-swipeable-views-core-0.13.7.tgz#c082b553f26e83fd20fc17f934200eb717023c8a"
+  integrity sha1-wIK1U/Jug/0g/Bf5NCAOtxcCPIo=
+  dependencies:
+    "@babel/runtime" "7.0.0"
+    warning "^4.0.1"
+
+react-swipeable-views-utils@^0.13.9:
+  version "0.13.9"
+  resolved "https://registry.npm.taobao.org/react-swipeable-views-utils/download/react-swipeable-views-utils-0.13.9.tgz#a66e98f2f4502d8b00182901f80d13b2f903e10f"
+  integrity sha1-pm6Y8vRQLYsAGCkB+A0TsvkD4Q8=
+  dependencies:
+    "@babel/runtime" "7.0.0"
+    keycode "^2.1.7"
+    prop-types "^15.6.0"
+    react-event-listener "^0.6.0"
+    react-swipeable-views-core "^0.13.7"
+    shallow-equal "^1.2.1"
+
+react-swipeable-views@^0.13.9:
+  version "0.13.9"
+  resolved "https://registry.npm.taobao.org/react-swipeable-views/download/react-swipeable-views-0.13.9.tgz#d6a6c508bf5288ad55509f9c65916db5df0f2cec"
+  integrity sha1-1qbFCL9SiK1VUJ+cZZFttd8PLOw=
+  dependencies:
+    "@babel/runtime" "7.0.0"
+    prop-types "^15.5.4"
+    react-swipeable-views-core "^0.13.7"
+    react-swipeable-views-utils "^0.13.9"
+    warning "^4.0.1"
 
 react-transition-group@^4.4.0, react-transition-group@^4.4.1:
   version "4.4.1"
@@ -9803,6 +9855,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.npm.taobao.org/regenerator-runtime/download/regenerator-runtime-0.11.1.tgz?cache=0&sync_timestamp=1595456159674&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fregenerator-runtime%2Fdownload%2Fregenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha1-vgWtf5v30i4Fb5cmzuUBf78Z4uk=
+
+regenerator-runtime@^0.12.0:
+  version "0.12.1"
+  resolved "https://registry.npm.taobao.org/regenerator-runtime/download/regenerator-runtime-0.12.1.tgz?cache=0&sync_timestamp=1595456159674&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fregenerator-runtime%2Fdownload%2Fregenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
+  integrity sha1-+hpxVEdkwDb4xJsToIsllMn4oN4=
 
 regenerator-runtime@^0.13.3, regenerator-runtime@^0.13.4:
   version "0.13.7"
@@ -10374,6 +10431,11 @@ shallow-clone@^3.0.0:
   integrity sha1-jymBrZJTH1UDWwH7IwdppA4C76M=
   dependencies:
     kind-of "^6.0.2"
+
+shallow-equal@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npm.taobao.org/shallow-equal/download/shallow-equal-1.2.1.tgz#4c16abfa56043aa20d050324efa68940b0da79da"
+  integrity sha1-TBar+lYEOqINBQMk76aJQLDaedo=
 
 shebang-command@^1.2.0:
   version "1.2.0"
@@ -11532,7 +11594,7 @@ walker@^1.0.7, walker@~1.0.5:
   dependencies:
     makeerror "1.0.x"
 
-warning@^4.0.0, warning@^4.0.3:
+warning@^4.0.0, warning@^4.0.1, warning@^4.0.3:
   version "4.0.3"
   resolved "https://registry.npm.taobao.org/warning/download/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
   integrity sha1-Fungd+uKhtavfWSqHgX9hbRnjKM=
